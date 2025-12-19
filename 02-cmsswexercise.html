@@ -226,7 +226,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#a-simple-example-with-cmssw">A simple example with CMSSW</a></li>
+        <ul><li><a href="#a-simple-example-with-cmssw">A Simple Example with CMSSW</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -310,8 +310,11 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>“How can I compile my CMSSW package using GitLab CI?”</li>
-<li>“How do I add other CMSSW packages?”</li>
+<ul><li>How can I compile my CMSSW analysis code?</li>
+<li>What is the correct way to add and organize my analysis code in a
+CMSSW work area?</li>
+<li>How can I verify that my code changes produce the expected
+results?</li>
 </ul></div>
 </div>
 </div>
@@ -319,289 +322,274 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>“Successfully compile CMSSW example analysis code in GitLab CI”
-keypoints:</li>
-<li>“For code to be compiled in CMSSW, it needs to reside within the
-work area’s <code>src</code> directory.”</li>
-<li>“The analysis code from the Git repository is copied to the CMSSW
-work area in the CI script.”</li>
-<li>“When using commands such as <code>git cms-addpkg</code>, the git
-configuration needs to be adjusted/set first.”</li>
+<ul><li>Successfully set up and compile example analysis code in a CMSSW
+environment.</li>
+<li>Understand how to organize and add your analysis code to the CMSSW
+work area.</li>
+<li>Learn how to test and compare analysis results after making code or
+selection changes.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="a-simple-example-with-cmssw">A simple example with CMSSW<a class="anchor" aria-label="anchor" href="#a-simple-example-with-cmssw"></a></h2>
-<hr class="half-width"><p>Let’s try a simple analyzer example using cmssw. This can help you
-get started with using GitLab CI for your CMSSW-based analyses.</p>
-<p><strong>First, let’s run a simple CMSSW job in your machine to make
-sure you understand the steps.</strong>
-<!-- We are going to use an old `CMSSW` release to enhance this example. --></p>
-<p>For your analysis to be compiled with CMSSW, it needs to reside in
-the workarea’s <code>src</code> directory, and in there follow the
-directory structure of two subdirectories
-(e.g. <code>AnalysisCode/MyAnalysis</code>) within which there can be
-<code>src</code>, <code>interface</code>, <code>plugin</code> and
-further directories. Your analysis code (under version control in
-GitLab/GitHub) will usually not contain the CMSSW workarea. The git
-repository will either contain the analysis code at the lowest level or
-have a subdirectory for the analysis code, to disentangle it from your
-configuration files such as the <code>.gitlab-ci.yml</code> file.</p>
-<p>We will use an example analysis, which selects pairs of electrons and
-muons. <a href="files/ZPeakAnalysis.zip">Download the zip file
-containing the analysis</a> and extract it now. The analysis code is in
-a directory called <code>ZPeakAnalysis</code> within which
-<code>plugins</code> (the C++ code) and <code>test</code> (the python
-config) directories reside.</p>
-<p>In your cmslpc or lxplus terminal, go to a new folder and follow this
-steps:</p>
-<ol style="list-style-type: decimal"><li>Download some example code:</li>
-</ol><div class="codewrapper sourceCode" id="cb1">
+<section><h2 class="section-heading" id="a-simple-example-with-cmssw">A Simple Example with CMSSW<a class="anchor" aria-label="anchor" href="#a-simple-example-with-cmssw"></a></h2>
+<hr class="half-width"><p>Let’s walk through a basic example for CMSSW-based analyses. We’ll
+use a simple analysis code that selects pairs of electrons and muons,
+compile it in a CMSSW environment, and run it on a small dataset. This
+workflow is typical for HEP analysis at CERN. For you to understand the
+workflow, we will first try to run the analysis code on your “local”
+machine (cmslpc, lxplus, university machine).</p>
+<div id="checklist1" class="callout checklist">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check-square"></i>
+</div>
+<span class="callout-header">Checklist</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>What You’ll Do:</p>
+<ul class="task-list"><li><label><input type="checkbox">Set up a CMSSW
+environment.</label></li>
+<li><label><input type="checkbox">Add example analysis
+code.</label></li>
+<li><label><input type="checkbox">Run the analysis code on a few
+events and create a ROOT file with histograms.</label></li>
+<li><label><input type="checkbox">Create a text file with the number
+of processed events.</label></li>
+<li><label><input type="checkbox">Modify the selection criteria and
+compare the results with the previous run.</label></li>
+</ul></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="step-1-set-up-your-cmssw-environment">Step 1: Set Up Your CMSSW Environment<a class="anchor" aria-label="anchor" href="#step-1-set-up-your-cmssw-environment"></a></h3>
+<p>For this local test, create a new CMSSW work area <strong>outside
+your GitLab repository</strong>:</p>
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Go to the folder you created in lesson 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">cd</span> ~/cmsdas/cmsdas-gitlab-cms/</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">wget</span> https://awesome-workshop.github.io/gitlab-cms/files/ZPeakAnalysis.zip</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">unzip</span> ZPeakAnalysis.zip</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Go to a folder outside your gitlab repository</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="ex">cmsrel</span> CMSSW_15_1_0</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="bu">cd</span> CMSSW_15_1_0/src</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="ex">cmsenv</span></span></code></pre>
 </div>
-<ol start="2" style="list-style-type: decimal"><li>Setup CMSSW environment:</li>
-</ol><div class="codewrapper sourceCode" id="cb2">
+<p>This sets up a fresh CMSSW work area.</p>
+<p>If your analysis depends on other CMSSW packages, add them using:</p>
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">cmsrel</span> CMSSW_15_1_0</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">git</span> cms-addpkg PhysicsTools/PatExamples</span></code></pre>
 </div>
-<ol start="3" style="list-style-type: decimal"><li>Copy the code inside the CMSSW workarea:</li>
-</ol><div class="codewrapper sourceCode" id="cb3">
+<p>This ensures all necessary packages are available.</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  If the previous command fails
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p>If you see an error about missing git configuration, set your name
+and email:</p>
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">${CMSSW_BASE}</span>/src/AnalysisCode</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> <span class="st">"</span><span class="va">${CI_PROJECT_DIR}</span><span class="st">/ZPeakAnalysis"</span> <span class="st">"</span><span class="va">${CMSSW_BASE}</span><span class="st">/src/AnalysisCode/"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">Cannot</span> find your details in the git configuration.</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">Please</span> set up your full name via:</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'&lt;your name&gt; &lt;your last name&gt;'</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="ex">Please</span> set up your email via:</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'&lt;your e-mail&gt;'</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="ex">Please</span> set up your GitHub user name via:</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="fu">git</span> config <span class="at">--global</span> user.github <span class="op">&lt;</span>your github username<span class="op">&gt;</span></span></code></pre>
 </div>
-<!-- Now that you know how to get a CMSSW environment, it is time to do something useful with it.
-
-## Compiling code within the repository
-
-For your analysis to be compiled with CMSSW, it needs to reside in the
-workarea's `src` directory, and in there follow the directory structure of
-two subdirectories (e.g. `AnalysisCode/MyAnalysis`) within which there can be
-`src`, `interface`, `plugin` and further directories. Your analysis code
-(under version control in GitLab/GitHub) will usually not contain the
-CMSSW workarea. The git repository will either
-contain the analysis code at the lowest level or have a subdirectory
-for the analysis code, to disentangle it from your configuration files such as the
-`.gitlab-ci.yml` file.
-
-We will use an example analysis, which selects pairs of electrons and muons.
-[Download the zip file containing the analysis](../files/ZPeakAnalysis.zip)
-and extract it now. The analysis code is
-in a directory called `ZPeakAnalysis` within which `plugins` (the C++ code)
-and `test` (the python config) directories reside.
-Add this directory to your repository:
-
-~~~
-# unzip ZPeakAnalysis.zip
-# mv ZPeakAnalysis ~/awesome-workshop/awesome-gitlab-cms/
-cd ~/awesome-workshop/awesome-gitlab-cms/
-git add ZPeakAnalysis
-git commit -m "Add ZPeakAnalysis"
-~~~
-{: .language-bash}
-
-When compiling the code in a GitLab pipeline, the `ZPeakAnalysis` needs
-to be copied into the CMSSW workarea, and it's advisable to use environment
-variables for this purpose. This would be achieved like this:
-
-~~~
-mkdir ${CMSSW_BASE}/src/AnalysisCode
-cp -r "${CI_PROJECT_DIR}/ZPeakAnalysis" "${CMSSW_BASE}/src/AnalysisCode/"
-~~~
-{: .language-bash}
-
-With these two commands we will now be able to extend the `.gitlab-ci.yml`
-file such that we can compile our analysis code in GitLab. To improve the
-readability of the file, the `CMSSW_RELEASE` is defined as a variable:
-
-~~~
-cmssw_compile:
-  image: registry.cern.ch/docker.io/cmssw/el7:x86_64
-  tags:
-    - cvmfs
-  variables:
-    CMS_PATH: /cvmfs/cms.cern.ch
-    CMSSW_RELEASE: CMSSW_10_6_30
-    SCRAM_ARCH: slc7_amd64_gcc700
-  script:
-    - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
-    - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cmsrel ${CMSSW_RELEASE}
-    - cd ${CMSSW_RELEASE}/src
-    - cmsenv
-    - mkdir -p AnalysisCode
-    - cp -r "${CI_PROJECT_DIR}/ZPeakAnalysis" "${CMSSW_BASE}/src/AnalysisCode/"
-    - scram b
-~~~
-{: language-yaml}
-
-## Exercise: Test that compilation works
->
-Commit the updated `.gitlab-ci.yml` file and check whether the GitLab pipeline succeeds.
->
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Adding CMSSW packages
-
-## Always add CMSSW packages before compiling analysis code!
->
-Adding CMSSW packages has to happen *before* compiling analysis code in the
-repository, since `git cms-addpkg` will call `git cms-init` for the
-`$CMSSW_BASE/src` directory, and `git init` doesn't work if the directory
-already contains files.
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-When developing CMSSW code, you will sometimes find yourself in the situation where you need
-to rebuild one of the CMSSW packages.
-This need can arise either from the fact you are modifying this package,
-or from the fact that another CMSSW package depends on the one you are developing
-and thus needs to be rebuilt.
-
-Assuming that you would like to check out CMSSW packages using the commands
-described in the [CMSSW FAQ][cmssw-faq-addpkg], a couple of additional settings need
-to be applied. For instance, try running the following command in GitLab CI
-after having set up CMSSW:
-
-~~~
-git cms-addpkg PhysicsTools/PatExamples
-~~~
-{: .language-bash}
-
-This will fail:
-
-~~~
-Cannot find your details in the git configuration.
-Please set up your full name via:
-    git config --global user.name '<your name> <your last name>'
-Please set up your email via:
-    git config --global user.email '<your e-mail>'
-Please set up your GitHub user name via:
-    git config --global user.github <your github username>
-~~~
-{: .output}
-
-There are a couple of options to make things work:
-
-- set the config as described above,
-- alternatively, create a `.gitconfig` in your repository and use it as described [here][custom-gitconfig],
-- run `git cms-init --upstream-only` before `git cms-addpkg` to disable setting up a user remote.
-
-For simplicity, and since we do not need to commit anything back to CMSSW from
-GitLab, we will use the latter approach.
-A complete `yaml` fragment that checks out a CMSSW package after having set up
-CMSSW and then compiles the code looks as follows:
-
-~~~
-cmssw_addpkg:
-  image: registry.cern.ch/docker.io/cmssw/el7:x86_64
-  tags:
-    - cvmfs
-  variables:
-    CMS_PATH: /cvmfs/cms.cern.ch
-    CMSSW_RELEASE: CMSSW_10_6_30
-    SCRAM_ARCH: slc7_amd64_gcc700
-  script:
-    - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
-    - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cmsrel ${CMSSW_RELEASE}
-    - cd ${CMSSW_RELEASE}/src
-    - cmsenv
-    # If within CERN, we can speed up interaction with CMSSW:
-    - export CMSSW_MIRROR=https://:@git.cern.ch/kerberos/CMSSW.git
-    # This is another trick to speed things up independent of your location:
-    - export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
-    # Important: run git cms-init with --upstream-only flag to not run into
-    # problems with git config
-    - git cms-init --upstream-only
-    - git cms-addpkg PhysicsTools/PatExamples
-    - scram b
-~~~
-{: language-yaml}
-
-The additional two variables that are exported here, `CMSSW_MIRROR` and
-`CMSSW_GIT_REFERENCE` can speed up interaction with git, in particular
-faster package checkouts. The `CMSSW_MIRROR` points to a GitHub mirror within the CERN network,
-accessible only from machines within the same network, which is the case for the GitLab runners.
-Settings these variables is *not* mandatory.
-
-## Bonus: have you tried putting both `cmssw_compile` and `cmssw_addpkg` in the same `.gitlab-ci.yml` file?
-If you do that, the two jobs will run in parallel.
-GitLab CI also allows running jobs in stages. Stages define group of jobs running together.
-To assign a job to a stage, just add `stage: some_name` in its definition.
-Stages run in sequence according to the order typically defined at the beginning of your `.gitlab-ci.yml`.
-If any job in a stage fails, the next stage will not run.
-{: .testimonial}
-
-## Exercise: can you put `cmssw_compile` and `cmssw_addpkg` in two stages?
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::: solution
-## Solution
-~~~
-stages:
-- compile
-- addpackage
-
-variables:
-  CMS_PATH: /cvmfs/cms.cern.ch
-  CMSSW_RELEASE: CMSSW_10_6_30
-  SCRAM_ARCH: slc7_amd64_gcc700
->
-cmssw_compile:
-  stage: compile
-  image: registry.cern.ch/docker.io/cmssw/el7:x86_64
-  tags:
-    - cvmfs
-  script:
-    - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
-    - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cmsrel ${CMSSW_RELEASE}
-    - cd ${CMSSW_RELEASE}/src
-    - cmsenv
-    - mkdir -p AnalysisCode
-    - cp -r "${CI_PROJECT_DIR}/ZPeakAnalysis" "${CMSSW_BASE}/src/AnalysisCode/"
-    - scram b
-
-cmssw_addpkg:
-  stage: addpackage
-  image: registry.cern.ch/docker.io/cmssw/el7:x86_64
-  tags:
-    - cvmfs
-  script:
-    - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
-    - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cmsrel ${CMSSW_RELEASE}
-    - cd ${CMSSW_RELEASE}/src
-    - cmsenv
-    # If within CERN, we can speed up interaction with CMSSW:
-    - export CMSSW_MIRROR=https://:@git.cern.ch/kerberos/CMSSW.git
-    # This is another trick to speed things up independent of your location:
-    - export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
-    # Important: run git cms-init with --upstream-only flag to not run into
-    # problems with git config
-    - git cms-init --upstream-only
-    - git cms-addpkg PhysicsTools/PatExamples
-    - scram b
-~~~
-{: language-yaml}
-In the solution above you will also notice that we have moved the definition of some variables
-outside of the job definition, because they are used by both jobs.
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-{% include links.md %}
-
-[cmssw-faq-addpkg]: https://cms-sw.github.io/faq.html#how-do-i-checkout-one-or-more-packages
-[custom-gitconfig]: https://stackoverflow.com/a/18330114/11743654 -->
+<p>There are a couple of options to make things work:</p>
+<ul><li>set the config as described above,</li>
+<li>alternatively, create a <code>.gitconfig</code> in your repository
+and use it as described <a href="https://stackoverflow.com/a/18330114/11743654" class="external-link">here</a>,</li>
+<li>run <code>git cms-init --upstream-only</code> before
+<code>git cms-addpkg</code> to disable setting up a user remote.</li>
+</ul></div>
+</div>
+</div>
+</div>
+<div id="always-add-cmssw-packages-before-compiling-or-adding-analysis-code" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="always-add-cmssw-packages-before-compiling-or-adding-analysis-code" class="callout-inner">
+<h3 class="callout-title">Always add CMSSW packages before compiling or
+adding analysis code</h3>
+<div class="callout-content">
+<p>Adding CMSSW packages has to happen <em>before</em> adding or
+compiling analysis code in the repository, since
+<code>git cms-addpkg</code> will call <code>git cms-init</code> for the
+<code>$CMSSW_BASE/src</code> directory, and <code>git init</code>
+doesn’t work if the directory already contains files.</p>
+</div>
+</div>
+</div>
+<hr></div>
+<div class="section level3">
+<h3 id="step-2-add-analysis-code-to-your-cmssw-work-area">Step 2: Add Analysis Code to Your CMSSW Work Area<a class="anchor" aria-label="anchor" href="#step-2-add-analysis-code-to-your-cmssw-work-area"></a></h3>
+<p>Your analysis code must be placed inside the work area’s
+<code>src</code> directory, following the standard CMSSW structure
+(e.g., <code>AnalysisCode/MyAnalysis</code>). Usually, your Git
+repository contains only your analysis code, not the full CMSSW work
+area.</p>
+<p>In this example, we’ll use a sample analysis that selects pairs of
+electrons and muons. The code is provided as a <a href="files/ZPeakAnalysis.zip">zip file</a>, containing a
+<code>ZPeakAnalysis</code> directory with <code>plugins</code> (C++
+code) and <code>test</code> (Python config).</p>
+<p>Download and extract the code:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Go to your project folder from lesson 1</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="bu">cd</span> ~/nobackup/cmsdas/cmsdas-gitlab-cms/   <span class="co"># Use ~/nobackup for cmslpc users</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">wget</span> https://alefisico.github.io/cmsdas-cat-gitlab-cms/files/ZPeakAnalysis.zip</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">unzip</span> ZPeakAnalysis.zip</span></code></pre>
+</div>
+<p>Copy the analysis code into your CMSSW work area:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${CMSSW_BASE}</span>/src/</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> AnalysisCode</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ~/cmsdas/cmsdas-gitlab-cms/ZPeakAnalysis AnalysisCode/</span></code></pre>
+</div>
+<p>Now your code is in the right place for CMSSW to find and compile
+it.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="step-3-compile-the-code">Step 3: Compile the Code<a class="anchor" aria-label="anchor" href="#step-3-compile-the-code"></a></h3>
+<p>Compile the analysis code:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${CMSSW_BASE}</span>/src/</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">scram</span> b <span class="at">-j</span> 4</span></code></pre>
+</div>
+<p>The <code>-j 4</code> flag uses 4 CPU cores for faster
+compilation.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="step-4-run-the-analysis-code-locally">Step 4: Run the Analysis Code Locally<a class="anchor" aria-label="anchor" href="#step-4-run-the-analysis-code-locally"></a></h3>
+<p>Now that the code is compiled, run it on a small dataset to test
+it:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">cmsenv</span>   <span class="co"># Good practice to ensure the environment is set</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${CMSSW_BASE}</span>/src/AnalysisCode/ZPeakAnalysis/</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="ex">cmsRun</span> test/MyZPeak_cfg.py</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>19-Dec-2025 15:46:09 CST  Initiating request to open file root://cmseos.fnal.gov//store/user/cmsdas/2026/short_exercises/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root
+19-Dec-2025 15:46:15 CST  Successfully opened file root://cmseos.fnal.gov//store/user/cmsdas/2026/short_exercises/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root
+Begin processing the 1st record. Run 1, Event 15930998, LumiSection 5897 on stream 0 at 19-Dec-2025 15:46:15.905 CST
+Begin processing the 1001st record. Run 1, Event 15933554, LumiSection 5897 on stream 0 at 19-Dec-2025 15:46:32.266 CST
+Begin processing the 2001st record. Run 1, Event 15936188, LumiSection 5898 on stream 0 at 19-Dec-2025 15:46:32.534 CST
+Begin processing the 3001st record. Run 1, Event 130736047, LumiSection 48385 on stream 0 at 19-Dec-2025 15:46:32.809 CST
+....
+Begin processing the 54001st record. Run 1, Event 1743339, LumiSection 646 on stream 0 at 19-Dec-2025 15:46:48.177 CST
+19-Dec-2025 15:46:48 CST  Closed file root://cmseos.fnal.gov//store/user/cmsdas/2026/short_exercises/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root</code></pre>
+</div>
+<p>If everything went well, you should see an output file called
+<code>myZPeak.root</code>. You can open it with ROOT to check the
+histograms.</p>
+<hr></div>
+<div class="section level3">
+<h3 id="step-5-check-the-number-of-events">Step 5: Check the Number of Events<a class="anchor" aria-label="anchor" href="#step-5-check-the-number-of-events"></a></h3>
+<p>To check the number of events in your histograms, run:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">python3</span> test/check_number_events.py</span></code></pre>
+</div>
+<p>This creates a text file called <code>number_of_events.txt</code>
+with output like:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">muonMult</span><span class="op">:</span> <span class="fl">54856.0</span></span>
+<span><span class="va">eleMult</span><span class="op">:</span>  <span class="fl">54856.0</span></span>
+<span><span class="va">mumuMass</span><span class="op">:</span> <span class="fl">16324.0</span></span></code></pre>
+</div>
+<hr></div>
+<div class="section level3">
+<h3 id="step-6-modify-the-selection-and-compare-results">Step 6: Modify the Selection and Compare Results<a class="anchor" aria-label="anchor" href="#step-6-modify-the-selection-and-compare-results"></a></h3>
+<p>Now, let’s modify the selection criteria and compare the results:</p>
+<ol style="list-style-type: decimal"><li>
+<p>Rerun the analysis with a modified selection:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">cmsRun</span> test/MyZPeak_cfg.py minPt=40</span></code></pre>
+</div>
+<p>This changes the minimum muon transverse momentum to 40 GeV.</p>
+</li>
+<li>
+<p>Check the number of events again:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">cp</span> number_of_events.txt number_of_events_old.txt</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">python3</span> test/check_number_events.py</span></code></pre>
+</div>
+</li>
+<li>
+<p>Compare the two results:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">python3</span> test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></code></pre>
+</div>
+<p>You should see a difference in the number of selected events due to
+the modified selection. For reference, expected results are provided in
+<code>test/number_of_expected_events.txt</code>.</p>
+</li>
+</ol><hr><div id="why-compare-results" class="callout testimonial">
+<div class="callout-square">
+<i class="callout-icon" data-feather="heart"></i>
+</div>
+<span class="callout-header">Testimonial</span>
+<div id="why-compare-results" class="callout-inner">
+<h3 class="callout-title">Why Compare results?</h3>
+<div class="callout-content">
+<p><strong>Creating a test to compare results is vital in analysis
+development!</strong></p>
+<p>As you develop your analysis, you’ll often modify selection criteria
+and code. This can lead to unintended changes in the number of selected
+events. By creating tests to compare results after each modification,
+you ensure your changes have the intended effect and do not introduce
+errors. This practice is crucial for maintaining the integrity of your
+analysis as it evolves.</p>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul><li>CMSSW analysis code must be placed inside the <code>src</code>
+directory of your CMSSW work area to be compiled.</li>
+<li>Always add required CMSSW packages before copying or compiling your
+analysis code.</li>
+<li>Running and testing your analysis locally helps catch issues before
+automating with CI.</li>
+<li>Comparing results after code or selection changes is essential for
+reliable and reproducible analyses.</li>
+</ul></div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -667,6 +655,7 @@ any links that you are not going to use.
 [gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
 [gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="01-introduction.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>

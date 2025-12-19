@@ -392,8 +392,9 @@ pipeline work in practice?<br>::::::
  2. <a href="02-cmsswexercise.html">A simple CMSSW example</a>
 </td>
 <td>
-“How can I compile my CMSSW package using GitLab CI?”<br>“How do I add
-other CMSSW packages?”<br>:::::::
+How can I compile my CMSSW analysis code?<br>What is the correct way to
+add and organize my analysis code in a CMSSW work area?<br>How can I
+verify that my code changes produce the expected results?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 40m
@@ -521,7 +522,7 @@ GitLab SSH Keys page</a>.</li>
   Windows
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>We dont have instructions for windows. Do you want to add some?
 Follow <a href=".CONTRIBUTING.html">CONTRIBUTING.md</a> guidelines to
@@ -557,8 +558,8 @@ if it differs from your local username.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/cmsdas</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="bu">cd</span> ~/cmsdas</span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/nobackup/cmsdas  <span class="co">#### ~/nobackup for cmslpc users</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="bu">cd</span> ~/nobackup/cmsdas</span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">git</span> clone ssh://git@gitlab.cern.ch:7999/<span class="va">${USER}</span>/cmsdas-gitlab-cms.git</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="bu">cd</span> cmsdas-gitlab-cms</span></code></pre>
 </div>

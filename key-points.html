@@ -327,7 +327,17 @@ quality.</li>
 <li>Pipelines are defined in <code>.gitlab-ci.yml</code> and consist of
 stages and jobs that run automatically on each push.</li>
 </ul></section><section id="02-cmsswexercise"><h2 class="section-heading"><a href="02-cmsswexercise.html">A simple CMSSW example</a></h2>
-<hr class="half-width"></section>
+<hr class="half-width">
+<ul>
+<li>CMSSW analysis code must be placed inside the <code>src</code>
+directory of your CMSSW work area to be compiled.</li>
+<li>Always add required CMSSW packages before copying or compiling your
+analysis code.</li>
+<li>Running and testing your analysis locally helps catch issues before
+automating with CI.</li>
+<li>Comparing results after code or selection changes is essential for
+reliable and reproducible analyses.</li>
+</ul></section>
 </div>
     </main>
 </div>
