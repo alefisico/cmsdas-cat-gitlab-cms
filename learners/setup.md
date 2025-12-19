@@ -75,8 +75,8 @@ To get the most out of this tutorial, create your own GitLab project and follow 
 We recommend working in a directory called `cmsdas` in your home folder. Replace `${USER}` with your CERN username if it differs from your local username.
 
 ```bash
-mkdir -p ~/cmsdas
-cd ~/cmsdas
+mkdir -p ~/nobackup/cmsdas  #### ~/nobackup for cmslpc users
+cd ~/nobackup/cmsdas
 git clone ssh://git@gitlab.cern.ch:7999/${USER}/cmsdas-gitlab-cms.git
 cd cmsdas-gitlab-cms
 ```

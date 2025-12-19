@@ -6,6 +6,8 @@ any links that you are not going to use.
 [snow-git]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/
 [gitlab-ci]: https://docs.gitlab.com/ci/
 [gitlab-newproject]: https://gitlab.cern.ch/projects/new
+[cmssw-faq-addpkg]: https://cms-sw.github.io/faq.html#how-do-i-checkout-one-or-more-packages
+[custom-gitconfig]: https://stackoverflow.com/a/18330114/11743654 
 
 <!-- [pandoc]: https://pandoc.org/MANUAL.html
 [r-markdown]: https://rmarkdown.rstudio.com/
