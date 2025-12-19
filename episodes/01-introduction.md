@@ -1,195 +1,211 @@
 ---
-title: "Setting up an environment using CVMFS in GitLab CI (e.g. to run CMSSW)"
+title: "Introduction to CERN GitLab CI/CD"
 teaching: 10
 exercises: 10
-questions:
-- "Which GitLab runners are needed?"
-- "What's different w.r.t. LXPLUS?"
-objectives:
-- "Know how to source the CMSSW environment"
-- "Understand the different commands that need to be used"
-keypoints:
-- "Special GitLab CVMFS runners are required to run CI jobs that need CVMFS, e.g. to run CMSSW."
-- "If the setup script tries to access unset variables, then that can cause the CI to fail when using strict shell scripting checks."
 ---
-Before getting into details, a few links to useful documentation on GitLab
-CI/CD and also CERN-specific information:
+
+:::::: questions
+
+- What is GitLab CI and why should I use it?
+- How does a GitLab pipeline work in practice?
+::::::
+
+:::::: objectives
+
+- Understand the purpose and benefits of using GitLab CI/CD.
+- Be able to create and explain a simple `.gitlab-ci.yml` file for automating tasks.
+::::::
+
+Before getting into details, a few links to useful documentation on GitLab CI/CD and also CERN-specific information:
 
 - [GitLab CI/CD documentation][gitlab-ci]
 - [CERN Knowledge Base Articles for the Git Service][snow-git]
 
 These pages serve as a good entrypoint in case of problems and questions.
 
-> ## Create a new GitLab project to follow along
-> Please [create a new GitLab project][gitlab-newproject] now to follow along.
-> To do so, select "Create blank project" and provide a project name.
-> You can for instance call it `awesome-gitlab-cms`. 
-> You need to specify the project visibility level. Private, the default, is fine for this tutorial.
-> In the following, we will assume that all your work is in a directory called `awesome-workshop` in your
-> home directory and we will now clone the newly created project in a local repository therein:
-> `~/awesome-workshop/awesome-gitlab-cms`
-{: .callout}
+:::::::: callout
 
-The commands would look like this (replace `${USER}` by your CERN
-username in case it isn't the same as on your laptop):
+If you haven't follow the [setup instructions](../learners/setup.md) to add your SSH key to your CERN GitLab account, please do so before continuing with this lesson.
 
-~~~
-mkdir -p ~/awesome-workshop
-cd awesome-workshop
-git clone ssh://git@gitlab.cern.ch:7999/${USER}/awesome-gitlab-cms.git
-cd awesome-gitlab-cms
-~~~
-{: .language-bash}
+::::::::
 
-## Choosing the correct GitLab runner
+:::::::: caution
 
-We are now going to setup a GitLab CI. For that, we need to create a `.gitlab-ci.yml` file.
-Standard [GitLab CI runners at CERN](https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/)
-do not mount CVMFS, which is required in many cases, for example for setting up CMSSW, to create a grid proxy, or to access LCG software stacks in `/cvmfs/sft.cern.ch/`.
-In order to get a runner that mounts CVMFS, you need
-to add a `tag` to your `gitlab-ci.yml` file:
+If you are familiar with Gitlab CI/CD, you can skip ahead to the next lesson.
 
-~~~
-tags:
-  - cvmfs
-~~~
-{: .language-yaml}
+::::::::
 
-A minimal `.gitlab-ci.yml` file to get a runner with CVMFS looks like the following:
+## Why Use GitLab CI/CD?
 
-~~~
-cmssw_setup:
-  tags:
-    - cvmfs
+**GitLab CI/CD** (Continuous Integration/Continuous Deployment) helps you automate tasks like testing, building, or deploying your code every time you make changes. This ensures your code is always working, your results are reliable, and saves you time from *catching errors* and doing repetitive tasks manually.
+
+GitLab CI/CD is especially useful in collaborative projects, where multiple people contribute code. It helps maintain code quality and consistency across the team.
+
+### How Does It Work?
+
+The set of steps and instructions (**pipeline**) is defined in a file called `.gitlab-ci.yml` in your repository. This file specifies what tasks to run, when to run them, and how to run them. When you push code, GitLab reads this file and runs the jobs as described.
+
+### What is a GitLab Pipeline?
+
+A **pipeline** is a sequence of jobs that run automatically when you push changes to your repository. Each job performs a specific task, such as checking your code or building your project.
+
+**Key concepts:**
+
+- **Job:** A single task (e.g., run analyzer, create container, check cutflow).
+- **Stage:** A group of jobs that run in order (e.g., test, build, deploy).
+- **Pipeline:** The full set of stages and jobs, triggered by changes to your code.
+
+---
+
+## Example 1: The Simplest GitLab CI Pipeline
+
+Let’s start with the most basic pipeline. This example just prints a message to show that the pipeline is working.
+
+Create a file called `.gitlab-ci.yml` in your project folder with the following content:
+
+```yaml
+# .gitlab-ci.yml
+stages:
+  - test
+
+test_job:
+  stage: test
   script:
-    - ls /cvmfs/cms.cern.ch/
-~~~
-{: .language-yaml}
+    - echo "Hello from GitLab CI!"
+```
 
-The `cmssw_setup` line defines the name of the job, and all the job does is
-list `/cvmfs/cms.cern.ch/`, which would fail if CVMFS isn't mounted. 
+Now, push this file to your GitLab repository.
 
-To trigger the pipeline we need to commit the file and push it to GitLab:
+1. Create the `.gitlab-ci.yml` file as above.
+2. Add, commit, and push it to your repository:
 
-~~~
+   ```bash
+# inside your local git repository ~/cmsdas/cmsdas-gitlab-cms/
 git add .gitlab-ci.yml
-git commit -m "added a CI"
+git commit -m "Add simple GitLab CI example"
 git push
-~~~
-{: .language-bash}
+   ```
+3. Go to your project’s **Build > Pipelines** page on GitLab to see it run!
 
-If you now navigate the GitLab UI with your browser you will see the CI running and eventually finishing.
-You can check the output, and also the `cvmfs` label:
+::::::::: challenge
 
-![A job with a GitLab CVMFS Runner showing the cvmfs label](fig/cvmfs_tag.png)
+### What happens if you follow these instructions?
 
-In the following you'll will learn how to setup a GitLab CI job that runs CMSSW.
+:::::: solution
 
-This should be regarded as an example for any CI job requiring access to CVMFS and accessing CMS-restricted files.
+If you go to the Gitlab website, and to your project's Build > Pipelines page, you will see a new pipeline has been created and is running. Once it finishes, you can click on the job to see the logs, which will show the message "Hello from GitLab CI!".
 
-## Setting up CMSSW
+![Gitlab CI Pipeline Example](fig/01_intro_GitlabPipeline.png){alt='Gitlab CI Pipeline Example'}
 
-> ## CMS-specific setup
-> Since the default user in the runner is not your username and the container doesn't
-> know anything about you in the first place, it doesn't have any
-> CMS-related environment as people registered as CMS members (via the _zh_
-> group on LXPLUS). This means that everything needs to be set up manually.
-{: .callout}
+Every time you push to GitLab, it will run the `test_job` and print a message in the pipeline logs.
 
-To set up a CMSSW release (for example `CMSSW_10_6_30`), you would usually
-run the following commands on LXPLUS:
+**Make sure to explore the Pipelines page to see how it works!**
 
-~~~
-cmssw-el7
-source /cvmfs/cms.cern.ch/cmsset_default.sh
-cmsrel CMSSW_10_6_30
-cd CMSSW_10_6_30/src
-cmsenv
-~~~
-{: .language-bash}
+:::::::
 
-The first command is needed because CMSSW_10_6_30 is pretty old (we chose an old one on purpose!) and it does not have any build for the recent alma9 LXPLUS. 
-So we need to start a CentOS7 container first, which we do with the `cmssw-el7` command, as described in the [CMS singularity guide](https://cms-sw.github.io/singularity.html).
+:::::::
 
-Depending on the software version chosen, the third command may print out a warning such as
+---
 
-~~~
-WARNING: Developer's area is created for non-production architecture slc7_amd64_gcc820. Production architecture for this release is slc7_amd64_gcc700.
-~~~
-{: .output}
+## Example 2: A Two-Step GitLab CI Pipeline with Dependency
 
-which can be ignored in this case (or could be removed by first executing
-`export SCRAM_ARCH=slc7_amd64_gcc700`).
+Now let’s make it a bit more interesting. In this example, the first step creates a file, and the second step uses that file. This shows how jobs can depend on each other.
 
-The command `source /cvmfs/cms.cern.ch/cmsset_default.sh` sets several
-environment variables, in particular adding `/cvmfs/cms.cern.ch/common` to
-the `${PATH}`. You can check this by running `echo ${PATH}`. Another effect
-of this command is that a few helper functions are defined, such as `cmsrel` and `cmsenv`.
+1. **Prepare:** Create a file called `message.txt` with some text.
+2. **Show:** Display the contents of `message.txt` (created by the previous step).
 
-> ## Exercise: Determining CMSSW-related aliases
-> What are the actual commands behind `cmsenv` and `cmsrel`?
-{: .challenge}
+Update your `.gitlab-ci.yml` file to the following:
 
-> ## Solution: Determining CMSSW-related aliases
-> The most important aliases are in the table below:
->
-> |-------------+---------------------------------|
-> | Alias       | Command                         |
-> |-------------+---------------------------------|
-> | `cmsenv`    | ``eval `scramv1 runtime -sh` `` |
-> | `cmsrel`    | `scramv1 project CMSSW`         |
-> |-------------+---------------------------------|
->
-> The meaning of `eval`: The args are read and concatenated together into a
-> single command. This command is then read and executed by the shell, and
-> its exit status is returned as the value of `eval`. If there are no args,
-> or only null arguments, `eval` returns 0.
->
-{: .solution}
+```yaml
+# .gitlab-ci.yml
+stages:
+  - prepare
+  - show
+
+prepare_job:
+  stage: prepare
+  script:
+    - echo "Hello from the pipeline!" > message.txt
+  artifacts:
+    paths:
+      - message.txt
+
+show_job:
+  stage: show
+  script:
+    - echo "The message is:"
+    - cat message.txt
+```
+
+Try again the previous steps:
+1. Update the `.gitlab-ci.yml` file as above.
+2. Add, commit, and push it to your repository:
+   ```bash
+   git add .gitlab-ci.yml
+   git commit -m "Add two-step pipeline with dependency"
+   git push
+   ```
+3. Go to your project’s **CI/CD > Pipelines** page on GitLab to watch the jobs run in order!
 
 
-A common pitfall when setting up CMSSW in GitLab is that the execution
-fails because the setup script doesn't follow best practices for shell
-scripts such as returning non-zero return values even if the setup is OK or
-using unset variables. Even if the script exits without visible error message,
-there could be something wrong. It is therefore often a good idea to
-circumvent issues like that by disabling strict checks (issuing `set +u`) before running the
-setup command and enabling these checks afterwards again (issuing `set -u`).
+::::::::: challenge
 
-> ## Exercise: Set up CMSSW in GitLab
-> Knowing all this, can you write the `.gitlab-ci.yml` file to set up CMSSW in GitLab starting from the fragment above and check if this is all working by executing `cmsRun --help` at the end?
-{: .challenge}
+### What happens if you follow these instructions?
+:::::: solution
+- When you push this file to GitLab, it will first run `prepare_job` (creates `message.txt`).
+- The file `message.txt` is saved as an artifact and passed to the next job.
+- Then, `show_job` runs and prints the contents of `message.txt`.
+:::::::::::::
 
-> ## Solution: Set up CMSSW in GitLab
-> Here is a possible solution:
->
-> ~~~
-> cmssw_setup:
->   image: registry.cern.ch/docker.io/cmssw/el7:x86_64
->   tags:
->     - cvmfs
->   variables:
->     # This is also set on LXPLUS
->     CMS_PATH: /cvmfs/cms.cern.ch
->   script:
->     - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
->     - export  SCRAM_ARCH=slc7_amd64_gcc700
->     - cmsrel CMSSW_10_6_30
->     - cd CMSSW_10_6_30/src
->     - cmsenv
->     - cmsRun --help
-> ~~~
-> {: .language-yaml}
->
-> The `image` directive tells the gitlab runner that it should run in a CentOS7 container, just like you would manually do on LXPLUS issuing `cmssw-el7`.
-> The `set +u` command turns off errors for referencing unset variables. It isn't really needed here, since `-u` (i.e. not allowing to use unset variables) isn't set by default, but the script would fail if one used `set -u` somewhere else, so it's safer to catch this here.
-{: .solution}
+:::::::::::::   
 
-The reason why in the example above the variable `${CMS_PATH}` is used and not simply
-`/cvmfs/cms.cern.ch` directly is just to mimic the default environment you would get on
-LXPLUS. You can check if this is the case for you as well by running `env | grep CMS_PATH`
-after logging on to LXPLUS.
+## Understanding the `.gitlab-ci.yml` File
 
-You can see some examples in the [payload GitLab repository][payload-gitlab-cms] for this lesson.
+The `.gitlab-ci.yml` file defines your pipeline. Here are the main keywords and their purpose:
 
-{% include links.md %}
+- **stages:**  
+  Lists the steps of your pipeline, in order. Each job is assigned to a stage.
+  ```yaml
+  stages:
+    - test
+    - build
+    - deploy
+  ```
+
+- **job:**  
+  Each job is a set of instructions to run. The job name is user-defined (e.g., `test_job`, `build_job`).
+  ```yaml
+  test_job:
+    stage: test
+    script:
+      - echo "Running tests"
+  ```
+
+- **stage:**  
+  Specifies which stage the job belongs to.
+
+- **script:**  
+  The commands to execute for the job. You can list one or more shell commands.
+
+- **artifacts:**  
+  Files or directories to pass from one job to another (between stages).
+  ```yaml
+  artifacts:
+    paths:
+      - result.txt
+  ```
+
+#### Basic Syntax Rules:
+
+- Indentation matters: use spaces, not tabs.
+- The file must start with a list of stages.
+- Each job must specify a stage and a script.
+
+For more details, see the [GitLab CI/CD documentation](https://docs.gitlab.com/ee/ci/yaml/).
+
+:::::: keypoints
+
+- GitLab CI/CD automates repetitive tasks and helps ensure code quality.
+- Pipelines are defined in `.gitlab-ci.yml` and consist of stages and jobs that run automatically on each push.
+
+::::::

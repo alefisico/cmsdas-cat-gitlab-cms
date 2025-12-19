@@ -2,4 +2,4 @@
 title: Instructor Notes
 ---
 
-This is a placeholder file. Please add content here.
+This is a placeholder for instructor notes for the GitLab CI/CD with CMSSW lesson.
