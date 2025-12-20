@@ -7,6 +7,12 @@
     <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/02-cmsswexercise.html</loc>
   </url>
   <url>
+    <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/03-gitlabci-setenv.html</loc>
+  </url>
+  <url>
+    <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/04-gitlabci-run-analysis.html</loc>
+  </url>
+  <url>
     <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/404.html</loc>
   </url>
   <url>
@@ -32,6 +38,12 @@
   </url>
   <url>
     <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/02-cmsswexercise.html</loc>
+  </url>
+  <url>
+    <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/03-gitlabci-setenv.html</loc>
+  </url>
+  <url>
+    <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/04-gitlabci-run-analysis.html</loc>
   </url>
   <url>
     <loc>https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/404.html</loc>
