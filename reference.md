@@ -12,4 +12,4 @@ This tutorial was first created for the awesome-workshop. The link to that tutor
 
 ## Glossary
 
-This is a placeholder file. Please add content here.
+- **CVMFS**: The CERN Virtual Machine File System (CVMFS) is a network file system based on HTTP and optimized to deliver experiment software in a fast, scalable, and reliable way. It is widely used in the high-energy physics community to distribute software and data.

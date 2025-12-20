@@ -2,4 +2,4 @@
 title: Instructor Notes
 ---
 
-This is a placeholder for instructor notes for the GitLab CI/CD with CMSSW lesson.
+Jan 2026 - The current lesson is on beta mode. The [previous lesson](https://awesome-workshop.github.io/gitlab-cms/index.html) was already on full release but some parts of the new lesson are still being finalized. Fill free to modify the mode and improve the content, and report any issues you find. 

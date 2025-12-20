@@ -39,7 +39,7 @@ source: 'https://github.com/FNALLPC/cmsdas-cat-gitlab-cms'
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org'
+contact: 'cms-phys-conveners-CAT@cern.ch'
 
 # Navigation ------------------------------------------------
 #
@@ -67,11 +67,8 @@ contact: 'team@carpentries.org'
 episodes: 
 - 01-introduction.md
 - 02-cmsswexercise.md
-# - 02-compiling.md
-# - 03-vomsproxy.md
-# - 04-catservices.md
-# - 05-running.md
-# - 07-building-image.md
+- 03-gitlabci-setenv.md
+- 04-gitlabci-run-analysis.md
 
 # Information for Learners
 learners: 

@@ -20,6 +20,18 @@ exercises: 10
 
 ::::::
 
+::::: callout
+
+If you are familiar with analysis development in CMSSW, you can skip ahead to the next lesson.
+
+:::::
+
+:::::::: instructor
+
+This lesson is for newcomers with little or no prior experience with CMSSW. In a real class, this lesson could be skipped or shortened if the audience is already familiar with CMSSW analysis development.
+::::::::
+
+
 ## A Simple Example with CMSSW
 
 Let’s walk through a basic example for CMSSW-based analyses. We’ll use a simple analysis code that selects pairs of electrons and muons, compile it in a CMSSW environment, and run it on a small dataset. This workflow is typical for HEP analysis at CERN. For you to understand the workflow, we will first try to run the analysis code on your "local" machine (cmslpc, lxplus, university machine).

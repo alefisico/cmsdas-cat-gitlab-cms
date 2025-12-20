@@ -35,6 +35,12 @@ If you are familiar with Gitlab CI/CD, you can skip ahead to the next lesson.
 
 ::::::::
 
+:::::::: instructor
+
+This lesson is for newcomers with little or no prior experience with GitLab CI/CD. In a real class, this lesson could be skipped or shortened if the audience is already familiar with GitLab CI/CD.
+::::::::
+
+
 ## Why Use GitLab CI/CD?
 
 **GitLab CI/CD** (Continuous Integration/Continuous Deployment) helps you automate tasks like testing, building, or deploying your code every time you make changes. This ensures your code is always working, your results are reliable, and saves you time from *catching errors* and doing repetitive tasks manually.
