@@ -290,6 +290,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-gitlabci-vomsproxy.html">5. Securely adding passwords and files to GitLab</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -741,7 +753,6 @@ any links that you are not going to use.
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
-[cmssw]: https://cms-sw.github.io/index.html
 
 [payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
 [gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
@@ -1152,7 +1163,6 @@ any links that you are not going to use.
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
-[cmssw]: https://cms-sw.github.io/index.html
 
 [payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
 [gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
@@ -1315,7 +1325,7 @@ fail.</p>
   To trigger the pipeline
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1417,7 +1427,7 @@ environment for the release.</li>
   Special Setup for cmslpc Users
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>At cmslpc, jobs typically run in your <code>nobackup</code> area
 (<code>/uscms_data/d3/USERNAME</code>). You may need to bind your
@@ -1451,7 +1461,7 @@ directories when starting a container:</p>
   Solution: Determining CMSSW-related aliases
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The most important aliases are in the table below:</p>
 <table class="table">
@@ -1630,7 +1640,6 @@ any links that you are not going to use.
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
-[cmssw]: https://cms-sw.github.io/index.html
 
 [payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
 [gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
@@ -1650,7 +1659,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-04-gitlabci-run-analysis"><p>Content from <a href="04-gitlabci-run-analysis.html">Running a CMSSW analysis in GitLab CI/CD</a></p>
 <hr>
-<p>Last updated on 2025-12-20 |
+<p>Last updated on 2025-12-21 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/04-gitlabci-run-analysis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -1697,7 +1706,7 @@ CI pipeline.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Notice that, <strong>on purpose</strong>, students in this lesson we
 are NOT running anything, but just discussing how to set up the code. If
@@ -1714,7 +1723,8 @@ lesson.</p>
 <p>After successfully setting up CMSSW in GitLab CI/CD in the previous
 lesson, you are now ready to run the next steps of the analysis workflow
 from <a href="02-cmsswexercise.html">Episode 2</a>: run the analysis on
-a small dataset and check the number of events in the output.</p>
+one file located in <em>EOS</em> via xrootd, apply some selections and
+check the number of events in the output.</p>
 <section><h2 class="section-heading" id="running-a-cmssw-analysis-in-gitlab-cicd">Running a CMSSW Analysis in GitLab CI/CD<a class="anchor" aria-label="anchor" href="#running-a-cmssw-analysis-in-gitlab-cicd"></a>
 </h2>
 <hr class="half-width">
@@ -1780,7 +1790,7 @@ definition?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> HINT: Is this how you would run your analysis locally? </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The job above will work, but it’s inefficient:</p>
 <ul>
@@ -1876,6 +1886,9 @@ the setup.</li>
 <span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
 <span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
 </div>
+<p>If you are satisfied with your pipeline, commit and push the changes.
+Check the pipeline logs for errors and verify that output files are
+produced as expected.</p>
 <div id="how-does-this-updated-pipeline-improve-efficiency" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1894,7 +1907,7 @@ efficiency?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> HINT: Are we repeating any steps unnecessarily? </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>
@@ -1928,16 +1941,16 @@ re-building.</li>
 </div>
 </div>
 </div>
-<div id="callout1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline run successfully? </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p>If yes, you dont need the rest of the lessons. If they are failing,
+continue with the next lesson.</p>
 </div>
-<span class="callout-header">Callout</span>
-<div class="callout-inner">
-<div class="callout-content">
-<p>If you are satisfied with your pipeline, commit and push the changes.
-Check the pipeline logs for errors and verify that output files are
-produced as expected.</p>
 </div>
 </div>
 </div>
@@ -2008,7 +2021,603 @@ any links that you are not going to use.
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
-[cmssw]: https://cms-sw.github.io/index.html
+
+[payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
+[gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
+[lesson-gitlab-artifacts]: https://hsf-training.github.io/hsf-training-cicd/11-skim-milk/index.html#artifacts
+[lesson-gitlab-secrets]: https://hsf-training.github.io/hsf-training-cicd/12-the-spy-game/index.html
+[lesson-gitlab]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
+[workshop-indico]: https://indico.cern.ch/event/854880/
+[hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
+[cms-analysis]: https://gitlab.cern.ch/cms-analysis
+[cat-docs]: https://cms-analysis.docs.cern.ch/code/
+[gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
+[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
+[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
+-->
+</div>
+</section></section><section id="aio-05-gitlabci-vomsproxy"><p>Content from <a href="05-gitlabci-vomsproxy.html">Securely adding passwords and files to GitLab</a></p>
+<hr>
+<p>Last updated on 2025-12-21 |
+
+        <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/05-gitlabci-vomsproxy.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I securely store my grid certificate and password in GitLab
+without exposing them?</li>
+<li>Why can’t I simply copy my grid certificate files into my GitLab
+repository?</li>
+<li>How do I restore and use grid credentials in a CI job?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand why grid credentials must be encoded and stored as
+protected CI/CD variables.</li>
+<li>Encode grid certificates and passwords using <code>base64</code> and
+add them securely to GitLab.</li>
+<li>Restore grid certificate files and obtain a VOMS proxy in a CI job
+to access CMS data.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="prereq1" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<span class="callout-header">Prerequisite</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>A valid grid certificate issued by CERN, and installed in
+<code>~/.globus/usercert.pem</code> and
+<code>~/.globus/userkey.pem</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Unless you are very familiar with CMSSW and CMS data access, the
+previous pipeline will likely fail when trying to access data on EOS via
+XRootD. This is because accessing CMS data typically requires a valid
+<strong>grid proxy</strong>.</p>
+<p>In your local environment (e.g., LXPLUS or cmslpc), you obtain a grid
+proxy using the <code>voms-proxy-init</code> command, which relies on
+your grid certificate files (<code>usercert.pem</code> and
+<code>userkey.pem</code>) stored in <code>~/.globus/</code>. However,
+<strong>GitLab CI jobs run in isolated environments</strong> and have no
+access to your local grid proxy.</p>
+<p>Additionally, you must never store grid certificate files or
+passwords directly in your GitLab repository—this would expose sensitive
+information. Instead, securely add them as <strong>CI/CD
+variables</strong> in GitLab.</p>
+<hr>
+<section><h2 class="section-heading" id="obtaining-a-grid-certificate">Obtaining a Grid Certificate<a class="anchor" aria-label="anchor" href="#obtaining-a-grid-certificate"></a>
+</h2>
+<hr class="half-width">
+<p>To access CMS data, you need a grid certificate (also called a
+Virtual Organization Membership Service (VOMS) proxy). If you don’t have
+one yet, request it <a href="https://ca.cern.ch/ca/" class="external-link">from the CERN Grid
+CA</a>, or follow <a href="https://www.uscms.org/uscms_at_work/computing/getstarted/get_grid_cert.html" class="external-link">these
+instructions</a>.</p>
+<p>Your grid certificate consists of two files:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">cat</span> ~/.globus/usercert.pem</span></code></pre>
+</div>
+<p>Output (example):</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Bag Attributes
+    localKeyID: 95 A0 95 B0 1e AB BD 13 59 D1 D2 BB 35 5A EA 2E CD 47 BA F7
+subject=/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=username/CN=123456/CN=Anonymous Nonamious
+issuer=/DC=ch/DC=cern/CN=CERN Grid Certification Authority
+-----BEGIN CERTIFICATE-----
+TH1s1SNT4R34lGr1DC3rt1f1C4t3But1Th4s4l3NgtH0F64CH4r4ct3rSP3rL1N3
+...
+-----END CERTIFICATE-----</code></pre>
+</div>
+<hr></section><section><h2 class="section-heading" id="keep-your-secrets-secret">Keep your secrets secret<a class="anchor" aria-label="anchor" href="#keep-your-secrets-secret"></a>
+</h2>
+<hr class="half-width">
+<div id="caution1" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p><strong>Never expose your grid certificate files or
+passwords!</strong></p>
+<ul>
+<li>Never store certificates or passwords in version control. Even if
+you delete them from <code>HEAD</code>, they remain in the commit
+history.</li>
+<li>Storing secrets in a shared repository violates grid policy and can
+lead to access revocation.</li>
+<li>If you accidentally commit sensitive data, immediately follow <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository" class="external-link">GitHub</a>
+or <a href="https://docs.gitlab.com/topics/git/undo/#handle-sensitive-information" class="external-link">GitLab</a>
+removal guides—but treat the data as compromised.</li>
+</ul>
+<p>For more details, see <a href="https://docs.gitlab.com/ee/ci/variables/" class="external-link">GitLab CI/CD variables
+documentation</a>.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="encoding-certificates-with-base64">Encoding Certificates with <code>base64</code>
+<a class="anchor" aria-label="anchor" href="#encoding-certificates-with-base64"></a>
+</h2>
+<hr class="half-width">
+<p>GitLab variables must be plain strings without line breaks. To
+preserve the structure of your certificate files, encode them using
+<code>base64</code>.</p>
+<div class="section level3">
+<h3 id="example-encoding-a-certificate">Example: Encoding a Certificate<a class="anchor" aria-label="anchor" href="#example-encoding-a-certificate"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">base64</span> <span class="at">-i</span> ~/.globus/usercert.pem <span class="at">-w</span> 0</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">base64</span> <span class="at">-i</span> ~/.globus/userkey.pem <span class="at">-w</span> 0</span></code></pre>
+</div>
+<p>(On Linux, add <code>-w 0</code> to disable line wrapping; on macOS,
+use <code>-D</code> to decode instead of <code>-d</code>.)</p>
+<p>Output (example):</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>QmFnIEF0dHJpYnV0ZXMKICAgIGxvY2FsS2V5SUQ6IDk1IEEwIDk1IEIwIDFlIEFCIEJEIDEzIDU5IEQxIEQyIEJCIDM1IDVBIEVBIDJFIENEIDQ3IEJBIEY3CnN1YmplY3Q9L0RDPWNoL0RDPWNlcm4vT1U9T3JnYW5pYyBVbml0cy9PVT1Vc2Vycy9DTj11c2VybmFtZS9DTj0xMjM0NTYvQ049QW5vbnltb3VzIE5vbmFtaW91cwppc3N1ZXI9L0RDPWNoL0RDPWNlcm4vQ049Q0VSTiBHcmlkIENlcnRpZmljYXRpb24gQXV0aG9yaXR5Ci0tLS0tQkVHSU4gQ0VSVElGSUNBVEUtLS0tLQpUSDFzMVNOVDRSMzRsR3IxREMzcnQxZjFDNHQzQnV0MVRoNHM0bDNOZ3RIMEY2NENINHI0Y3QzclNQM3JMMU4zCjFhbVQwMExhMllUMHdSMVQzNDVtMHIzbDFOM1MwZm4wbnMzTlMzUzAxL2xMU3QwcEgzcjNBbmRBRGRzUEFjM1MKLi4uNDUgbW9yZSBsaW5lcyBvZiBsMzN0IGRpYWxlY3QuLi4KKzRuZCtoZUw0UyszOGNINHI0YytlcnNCZWYwckUrSEUxK2VuRHM9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==</code></pre>
+</div>
+<p>To verify encoding works, decode it back:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">base64</span> <span class="at">-i</span> ~/.globus/usercert.pem <span class="at">-w</span> 0 <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-d</span></span></code></pre>
+</div>
+<p>This should return your original certificate.</p>
+<div id="decode-a-secret-message" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="decode-a-secret-message" class="callout-inner">
+<h3 class="callout-title">Decode a Secret Message</h3>
+<div class="callout-content">
+<p>Try decoding this base64-encoded message:</p>
+<pre><code>SSB3aWxsIG5ldmVyIHB1dCBteSBzZWNyZXRzIHVuZGVyIHZlcnNpb24gY29udHJvbAo=</code></pre>
+<p>Use the <code>base64</code> command with the <code>-d</code> (Linux)
+or <code>-D</code> (macOS) flag.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"SSB3aWxsIG5ldmVyIHB1dCBteSBzZWNyZXRzIHVuZGVyIHZlcnNpb24gY29udHJvbAo="</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-d</span></span></code></pre>
+</div>
+<p>Output:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>I will never put my secrets under version control</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="adding-secrets-to-gitlab">Adding Secrets to GitLab<a class="anchor" aria-label="anchor" href="#adding-secrets-to-gitlab"></a>
+</h2>
+<hr class="half-width">
+<p>Now encode your grid password and certificates. For your
+password:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'mySecr3tP4$$w0rd'</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-w</span> 0</span></code></pre>
+</div>
+<p>(Use single quotes <code>'</code>, not double quotes <code>"</code>.
+Include <code>-w 0</code> on Linux.)</p>
+<div class="section level3">
+<h3 id="adding-variables-in-gitlab">Adding Variables in GitLab<a class="anchor" aria-label="anchor" href="#adding-variables-in-gitlab"></a>
+</h3>
+<p>Now we know how to encode our grid certificate files, we can add them
+as <strong>CI/CD variables</strong> in GitLab. These variables are
+passed to the job environment when a job is run, and can be used in the
+job scripts. This way, we can avoid storing sensitive information
+directly in the repository.</p>
+</div>
+</section><section><h2 class="section-heading" id="adding-grid-certificate-and-password-to-gitlab">Adding Grid Certificate and Password to GitLab<a class="anchor" aria-label="anchor" href="#adding-grid-certificate-and-password-to-gitlab"></a>
+</h2>
+<hr class="half-width">
+<p>Now that we know how to encode our grid certificate files, we can add
+them as <strong>CI/CD variables</strong> in GitLab. These variables are
+passed to the job environment when a job runs, and can be used in the
+job scripts. This way, we avoid storing sensitive information directly
+in the repository.</p>
+<p>There are a couple of important things to keep in mind when adding
+passwords and certificates as variables to GitLab:</p>
+<ul>
+<li>
+<strong>Variables should always be set to <code>Protected</code>
+state.</strong> This ensures that they are only available in protected
+branches, e.g., your <code>master</code> or <code>main</code> branch.
+This is important when collaborating with others, since anyone with
+access could simply <code>echo</code> the variables in a merge request
+if automated tests run on merge requests.</li>
+<li>
+<strong>As an additional safety measure, set them as
+<code>Masked</code> as well if possible.</strong> This will prevent your
+password from appearing in job logs. (Note: masking may not work
+perfectly for certificates due to their length, but should work for your
+grid password.)</li>
+</ul>
+<p>For more details, see the <a href="https://docs.gitlab.com/ee/ci/variables/" class="external-link">GitLab CI/CD variables
+documentation</a>. If you upload sensitive data by mistake, immediately
+follow the guidance on <a href="https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository" class="external-link">Removing
+Sensitive data on Github</a> or <a href="https://docs.gitlab.com/topics/git/undo/#handle-sensitive-information" class="external-link">on
+Gitlab</a>.</p>
+<div class="section level3">
+<h3 id="encoding-your-credentials">Encoding Your Credentials<a class="anchor" aria-label="anchor" href="#encoding-your-credentials"></a>
+</h3>
+<p>For your grid proxy password, encode it using <code>base64</code>
+(<strong>make sure nobody’s peeking at your screen</strong>):</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="bu">printf</span> <span class="st">'mySecr3tP4$$w0rd'</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-w</span> 0</span></code></pre>
+</div>
+<p>Use single quotes (<code>'</code>), not double quotes
+(<code>"</code>). On Linux, add <code>-w 0</code> to disable line
+wrapping (by default, base64 wraps after 76 characters).</p>
+<p>For the two certificates, use them directly as input:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">base64</span> <span class="at">-i</span> ~/.globus/usercert.pem <span class="at">-w</span> 0</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">base64</span> <span class="at">-i</span> ~/.globus/userkey.pem <span class="at">-w</span> 0</span></code></pre>
+</div>
+<p>Copy the full output into GitLab.</p>
+<div id="every-equal-sign-counts" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="every-equal-sign-counts" class="callout-inner">
+<h3 class="callout-title">Every Equal Sign Counts!</h3>
+<div class="callout-content">
+<p>Make sure to copy the <strong>full string including trailing equal
+signs</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="adding-variables-in-gitlab-ui">Adding Variables in GitLab UI<a class="anchor" aria-label="anchor" href="#adding-variables-in-gitlab-ui"></a>
+</h3>
+<p>Go to <strong>Settings &gt; CI/CD &gt; Variables</strong> in your
+GitLab project. Add the following three variables:</p>
+<table class="table">
+<thead><tr class="header">
+<th>Variable</th>
+<th>Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>GRID_PASSWORD</code></td>
+<td>(base64-encoded password)</td>
+</tr>
+<tr class="even">
+<td><code>GRID_USERCERT</code></td>
+<td>(base64-encoded <code>usercert.pem</code>)</td>
+</tr>
+<tr class="odd">
+<td><code>GRID_USERKEY</code></td>
+<td>(base64-encoded <code>userkey.pem</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>For each variable:</p>
+<ul>
+<li>Check <strong>Protected</strong> (so it’s only available on
+protected branches like <code>master</code>/<code>main</code>).</li>
+<li>Check <strong>Masked</strong> (so values won’t appear in job
+logs—especially important for the password).</li>
+</ul>
+<p>The <strong>Settings &gt; CI/CD &gt; Variables</strong> section
+should look like this:</p>
+<figure><img src="../fig/variables_gitlab.png" alt="CI/CD Variables section with grid secrets added" class="figure mx-auto d-block"><div class="figcaption">CI/CD Variables section with grid secrets
+added</div>
+</figure>
+</div>
+<div class="section level3">
+<h3 id="protect-your-main-branch">Protect Your Main Branch<a class="anchor" aria-label="anchor" href="#protect-your-main-branch"></a>
+</h3>
+<p>To reduce the risk of leaking passwords and certificates to others,
+go to <strong>Settings &gt; Repository &gt; Protected Branches</strong>
+and protect your <code>master</code> or <code>main</code> branch. This
+prevents collaborators from pushing directly and accidentally exposing
+secrets in job logs.</p>
+<figure><img src="../fig/protected_branches.png" alt="Protecting branches to prevent password leaks" class="figure mx-auto d-block"><div class="figcaption">Protecting branches to prevent password
+leaks</div>
+</figure><p>With the <strong>Protected</strong> option enabled for variables,
+they are only available to those protected branches (though Maintainers
+can still push to them).</p>
+</div>
+</section><section><h2 class="section-heading" id="using-the-grid-proxy-in-ci">Using the Grid Proxy in CI<a class="anchor" aria-label="anchor" href="#using-the-grid-proxy-in-ci"></a>
+</h2>
+<hr class="half-width">
+<p>With secrets stored, you can now restore the certificate files and
+obtain a grid proxy in your CI job:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">${HOME}</span>/.globus</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="bu">printf</span> <span class="st">"</span><span class="va">${GRID_USERCERT}</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-d</span> <span class="op">&gt;</span> <span class="va">${HOME}</span>/.globus/usercert.pem</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="bu">printf</span> <span class="st">"</span><span class="va">${GRID_USERKEY}</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-d</span> <span class="op">&gt;</span> <span class="va">${HOME}</span>/.globus/userkey.pem</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="fu">chmod</span> 400 <span class="va">${HOME}</span>/.globus/userkey.pem</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="bu">printf</span> <span class="st">"</span><span class="va">${GRID_PASSWORD}</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">base64</span> <span class="at">-d</span> <span class="kw">|</span> <span class="ex">voms-proxy-init</span> <span class="at">--voms</span> cms <span class="at">--pwstdin</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="ex">voms-proxy-info</span> <span class="at">--all</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="example-gitlab-ci-job">Example GitLab CI Job<a class="anchor" aria-label="anchor" href="#example-gitlab-ci-job"></a>
+</h3>
+<p>The standard CentOS 7 CMSSW image lacks CMS-specific certificates.
+Use the CMS-specific image instead:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">voms_proxy_test</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-destroy</span></span></code></pre>
+</div>
+<p>The <code>entrypoint: [""]</code> override is needed to ensure the
+job runs your custom script instead of a default entrypoint.</p>
+</div>
+<div class="section level3">
+<h3 id="test-your-setup">Test Your Setup<a class="anchor" aria-label="anchor" href="#test-your-setup"></a>
+</h3>
+<p>Before moving to the next section, <strong>commit and push your
+<code>.gitlab-ci.yml</code></strong>, navigate to <strong>CI/CD &gt;
+Pipelines</strong>, and verify:</p>
+<ol style="list-style-type: decimal">
+<li>The job runs on a <code>cvmfs</code> runner.</li>
+<li>
+<code>voms-proxy-init</code> succeeds without errors.</li>
+<li>
+<code>voms-proxy-info</code> displays your proxy details.</li>
+</ol>
+<p>If proxy creation fails, check the job logs and verify all three
+variables are set correctly (especially trailing equal signs in base64
+strings).</p>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>Once your grid proxy works, you can extend the pipeline to run your
+analysis with <code>cmsRun</code> and access CMS data on EOS!</p>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline succeed this time? </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<p>Even with the <code>voms_proxy_test</code> job added, you still need
+to export your grid proxy as artifact and added in the analysis job to
+access data on EOS.</p>
+<p>Here is an example of how to do this:</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> compile</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> run</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> check</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="at">  </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="at">  </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="at">  </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a><span class="fu">cmssw_compile</span><span class="kw">:</span></span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsrel ${CMSSW_RELEASE}</span></span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scram b -j 4</span></span>
+<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span>
+<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a><span class="fu">voms_proxy_test</span><span class="kw">:</span></span>
+<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
+<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
+<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb14-37"><a href="#cb14-37" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
+<span id="cb14-38"><a href="#cb14-38" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb14-39"><a href="#cb14-39" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
+<span id="cb14-40"><a href="#cb14-40" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
+<span id="cb14-41"><a href="#cb14-41" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb14-42"><a href="#cb14-42" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb14-43"><a href="#cb14-43" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
+<span id="cb14-44"><a href="#cb14-44" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
+<span id="cb14-45"><a href="#cb14-45" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb14-46"><a href="#cb14-46" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb14-47"><a href="#cb14-47" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /tmp/x509up_u$(id -u)</span></span>
+<span id="cb14-48"><a href="#cb14-48" tabindex="-1"></a></span>
+<span id="cb14-49"><a href="#cb14-49" tabindex="-1"></a><span class="fu">cmssw_run</span><span class="kw">:</span></span>
+<span id="cb14-50"><a href="#cb14-50" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb14-51"><a href="#cb14-51" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb14-52"><a href="#cb14-52" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms_proxy_test</span></span>
+<span id="cb14-53"><a href="#cb14-53" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb14-54"><a href="#cb14-54" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb14-55"><a href="#cb14-55" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb14-56"><a href="#cb14-56" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb14-57"><a href="#cb14-57" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb14-58"><a href="#cb14-58" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb14-59"><a href="#cb14-59" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb14-60"><a href="#cb14-60" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb14-61"><a href="#cb14-61" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb14-62"><a href="#cb14-62" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
+<span id="cb14-63"><a href="#cb14-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb14-64"><a href="#cb14-64" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
+<span id="cb14-65"><a href="#cb14-65" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb14-66"><a href="#cb14-66" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb14-67"><a href="#cb14-67" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb14-68"><a href="#cb14-68" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb14-69"><a href="#cb14-69" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb14-70"><a href="#cb14-70" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb14-71"><a href="#cb14-71" tabindex="-1"></a></span>
+<span id="cb14-72"><a href="#cb14-72" tabindex="-1"></a><span class="fu">check_events</span><span class="kw">:</span></span>
+<span id="cb14-73"><a href="#cb14-73" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb14-74"><a href="#cb14-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb14-75"><a href="#cb14-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_run</span></span>
+<span id="cb14-76"><a href="#cb14-76" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> check</span></span>
+<span id="cb14-77"><a href="#cb14-77" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb14-78"><a href="#cb14-78" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb14-79"><a href="#cb14-79" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb14-80"><a href="#cb14-80" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb14-81"><a href="#cb14-81" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb14-82"><a href="#cb14-82" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb14-83"><a href="#cb14-83" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb14-84"><a href="#cb14-84" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb14-85"><a href="#cb14-85" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb14-86"><a href="#cb14-86" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb14-87"><a href="#cb14-87" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Never store grid certificates or passwords in version control; they
+remain in commit history and violate grid policy.</li>
+<li>Encode grid certificates and passwords with <code>base64</code> and
+store them as protected CI/CD variables in GitLab.</li>
+<li>Set variables to <code>Protected</code> (available only on protected
+branches) and <code>Masked</code> (hidden in logs) for maximum
+security.</li>
+<li>Restore grid certificate files and obtain a VOMS proxy in CI jobs
+using <code>base64 -d</code> and
+<code>voms-proxy-init --pwstdin</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+<!-- [pandoc]: https://pandoc.org/MANUAL.html
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[carpentries-workbench]: https://carpentries.github.io/sandpaper-docs/
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[ci]: http://communityin.org/
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[contrib-covenant]: https://contributor-covenant.org/
+[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
+[cran-knitr]: https://cran.r-project.org/package=knitr
+[cran-stringr]: https://cran.r-project.org/package=stringr
+[dc-lessons]: http://www.datacarpentry.org/lessons/
+[email]: mailto:team@carpentries.org
+[github-importer]: https://import.github.com/
+[importer]: https://github.com/new/import
+[jekyll-collection]: https://jekyllrb.com/docs/collections/
+[jekyll-install]: https://jekyllrb.com/docs/installation/
+[jekyll-windows]: http://jekyll-windows.juthilo.com/
+[jekyll]: https://jekyllrb.com/
+[jupyter]: https://jupyter.org/
+[kramdown]: https://kramdown.gettalong.org/
+[lc-lessons]: https://librarycarpentry.org/lessons/
+[lesson-example]: https://carpentries.github.io/lesson-example/
+[mit-license]: https://opensource.org/licenses/mit-license.html
+[morea]: https://morea-framework.github.io/
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org
+[pandoc]: https://pandoc.org/
+[paper-now]: https://github.com/PeerJ/paper-now
+[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
+[pyyaml]: https://pypi.python.org/pypi/PyYAML
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
+[ruby-installer]: https://rubyinstaller.org/
+[rubygems]: https://rubygems.org/pages/download/
+[styles]: https://github.com/carpentries/styles/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-releases]: https://github.com/swcarpentry/swc-releases
+[training]: https://carpentries.github.io/instructor-training/
+[yaml]: http://yaml.org/
+[bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
 
 [payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
 [gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
@@ -2075,8 +2684,8 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/aio.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/aio.html",
   "dateCreated": "NA",
-  "dateModified": "2025-12-20",
-  "datePublished": "2025-12-20"
+  "dateModified": "2025-12-21",
+  "datePublished": "2025-12-21"
 }
 
   </script><script>
