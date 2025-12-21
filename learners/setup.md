@@ -51,7 +51,7 @@ You can now use SSH to interact with your GitLab repositories.
 
 #### Windows
 
-We dont have instructions for windows. Do you want to add some? Follow [CONTRIBUTING.md](../.CONTRIBUTING.md) guidelines to propose a change.
+We dont have instructions for windows. Do you want to add some? Follow [CONTRIBUTING.md](CONTRIBUTING.md) guidelines to propose a change.
 
 :::::::::::::::::::::::::
 

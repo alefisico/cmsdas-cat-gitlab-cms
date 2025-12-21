@@ -69,6 +69,7 @@ episodes:
 - 02-cmsswexercise.md
 - 03-gitlabci-setenv.md
 - 04-gitlabci-run-analysis.md
+- 05-gitlabci-vomsproxy.md
 
 # Information for Learners
 learners: 

@@ -28,7 +28,7 @@ The reason if that they have to access files thought xrood, and therefore they n
 
 ::::::::
 
-After successfully setting up CMSSW in GitLab CI/CD in the previous lesson, you are now ready to run the next steps of the analysis workflow from [Episode 2](02-cmsswexercise.md): run the analysis on a small dataset and check the number of events in the output.
+After successfully setting up CMSSW in GitLab CI/CD in the previous lesson, you are now ready to run the next steps of the analysis workflow from [Episode 2](02-cmsswexercise.md): run the analysis on one file located in _EOS_ via xrootd, apply some selections and check the number of events in the output.
 
 ## Running a CMSSW Analysis in GitLab CI/CD
 
@@ -168,6 +168,8 @@ check_events:
     - python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt
 ```
 
+If you are satisfied with your pipeline, commit and push the changes. Check the pipeline logs for errors and verify that output files are produced as expected.
+
 ::::::: discussion
 #### How does this updated pipeline improve efficiency?
 ::::::::
@@ -197,9 +199,11 @@ cmssw_compile:
 ```
 :::
 
-:::: callout
+:::: spoiler
 
-If you are satisfied with your pipeline, commit and push the changes. Check the pipeline logs for errors and verify that output files are produced as expected.
+##### Did your pipeline run successfully?
+
+If yes, you dont need the rest of the lessons. If they are failing, continue with the next lesson.  
 
 :::::::
 
