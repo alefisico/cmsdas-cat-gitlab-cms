@@ -6,6 +6,7 @@ any links that you are not going to use.
 [snow-git]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/
 [gitlab-ci]: https://docs.gitlab.com/ci/
 [gitlab-newproject]: https://gitlab.cern.ch/projects/new
+[cmssw]: https://cms-sw.github.io/index.html
 [cmssw-faq-addpkg]: https://cms-sw.github.io/faq.html#how-do-i-checkout-one-or-more-packages
 [custom-gitconfig]: https://stackoverflow.com/a/18330114/11743654 
 
@@ -54,7 +55,6 @@ any links that you are not going to use.
 [training]: https://carpentries.github.io/instructor-training/
 [yaml]: http://yaml.org/
 [bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
-[cmssw]: https://cms-sw.github.io/index.html
 
 [payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
 [gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
