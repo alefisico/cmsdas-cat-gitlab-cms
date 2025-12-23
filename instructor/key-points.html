@@ -302,6 +302,30 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-catservices.html">6. CAT services for GitLab CI</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-final-run.html">7. Putting It All Together: Final Run with CAT Services</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -395,10 +419,23 @@ or non-standard exit codes; inspect job logs to diagnose issues.</li>
 <ul>
 <li>GitLab CI runs on remote runners; every dependency and setup step
 must be in <code>.gitlab-ci.yml</code>.</li>
+<li>Use CVMFS-enabled Kubernetes runners (<code>k8s-cvmfs</code>); the
+<code>image:</code> keyword is honored only there.</li>
 <li>Split the pipeline into stages and pass the built CMSSW area via
 artifacts to avoid rebuilding in each job.</li>
 <li>Validate outputs in CI (e.g., <code>myZPeak.root</code>, event
 counts) to catch issues early; inspect job logs for failures.</li>
+<li>Artifacts are write-protected by default; downstream jobs must copy
+them to a writable directory using <code>mkdir</code>,
+<code>cp -r</code>, and <code>chmod -R +w</code>.</li>
+<li>Define artifacts with <code>untracked: true</code> to capture build
+outputs, and set <code>expire_in</code> to control automatic cleanup
+(e.g., <code>1 hour</code> for testing, <code>1 week</code> for
+production).</li>
+<li>Use the <code>needs</code> keyword for faster pipelines—jobs start
+immediately when dependencies complete, rather than waiting for entire
+stages to finish. <code>dependencies</code> is an alternative that
+strictly respects stage order.</li>
 </ul></section><section id="05-gitlabci-vomsproxy"><h2 class="section-heading"><a href="05-gitlabci-vomsproxy.html">Securely adding passwords and files to GitLab</a></h2>
 <hr class="half-width">
 <ul>
@@ -412,7 +449,25 @@ security.</li>
 <li>Restore grid certificate files and obtain a VOMS proxy in CI jobs
 using <code>base64 -d</code> and
 <code>voms-proxy-init --pwstdin</code>.</li>
-</ul></section>
+</ul></section><section id="06-catservices"><h2 class="section-heading"><a href="06-catservices.html">CAT services for GitLab CI</a></h2>
+<hr class="half-width">
+<ul>
+<li>CAT services simplify CMS resource access in GitLab CI by
+eliminating manual certificate and credential management.</li>
+<li>CAT services only work in the <code>cms-analysis</code> namespace
+for security; move your project there via <strong>Settings &gt; General
+&gt; Advanced &gt; Transfer project</strong>.</li>
+<li>The CAT EOS file service provides JWT-authenticated access to
+datasets in <code>/eos/cms/store/group/cat</code> via the
+<code>cmscat</code> service account.</li>
+<li>The CAT VOMS proxy service provides short-lived grid proxies without
+storing personal certificates; proxies are returned as base64-encoded
+strings.</li>
+<li>Both services require configuring <code>id_tokens</code> in
+<code>.gitlab-ci.yml</code> and querying CAT endpoints to retrieve
+authentication tokens.</li>
+</ul></section><section id="07-final-run"><h2 class="section-heading"><a href="07-final-run.html">Putting It All Together: Final Run with CAT Services</a></h2>
+<hr class="half-width"></section>
 </div>
     </main>
 </div>

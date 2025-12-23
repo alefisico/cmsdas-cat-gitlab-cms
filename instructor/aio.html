@@ -302,6 +302,30 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-catservices.html">6. CAT services for GitLab CI</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-final-run.html">7. Putting It All Together: Final Run with CAT Services</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -762,11 +786,7 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
 </section></section><section id="aio-02-cmsswexercise"><p>Content from <a href="02-cmsswexercise.html">A simple CMSSW example</a></p>
@@ -829,7 +849,7 @@ ahead to the next lesson.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>This lesson is for newcomers with little or no prior experience with
 CMSSW. In a real class, this lesson could be skipped or shortened if the
@@ -896,7 +916,7 @@ your GitLab repository</strong>:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> If the previous command fails </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If you see an error about missing git configuration, set your name
 and email:</p>
@@ -1172,16 +1192,12 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
 </section></section><section id="aio-03-gitlabci-setenv"><p>Content from <a href="03-gitlabci-setenv.html">Setting up CMSSW in GitLab CI/CD</a></p>
 <hr>
-<p>Last updated on 2025-12-20 |
+<p>Last updated on 2025-12-23 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/03-gitlabci-setenv.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -1325,7 +1341,7 @@ fail.</p>
   To trigger the pipeline
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1427,7 +1443,7 @@ environment for the release.</li>
   Special Setup for cmslpc Users
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>At cmslpc, jobs typically run in your <code>nobackup</code> area
 (<code>/uscms_data/d3/USERNAME</code>). You may need to bind your
@@ -1461,7 +1477,7 @@ directories when starting a container:</p>
   Solution: Determining CMSSW-related aliases
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The most important aliases are in the table below:</p>
 <table class="table">
@@ -1649,17 +1665,13 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
 </div>
 </section></section><section id="aio-04-gitlabci-run-analysis"><p>Content from <a href="04-gitlabci-run-analysis.html">Running a CMSSW analysis in GitLab CI/CD</a></p>
 <hr>
-<p>Last updated on 2025-12-21 |
+<p>Last updated on 2025-12-23 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/04-gitlabci-run-analysis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -1692,7 +1704,8 @@ stages?</li>
 <li>Run a CMSSW analysis job in GitLab CI using a CVMFS-enabled
 runner.</li>
 <li>Configure <code>.gitlab-ci.yml</code> to reuse a built CMSSW release
-via artifacts instead of rebuilding each time.</li>
+via artifacts instead of rebuilding each time, and handle
+write-protection in downstream jobs.</li>
 <li>Validate the analysis output (ROOT file and event counts) within the
 CI pipeline.</li>
 </ul>
@@ -1706,7 +1719,7 @@ CI pipeline.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Notice that, <strong>on purpose</strong>, students in this lesson we
 are NOT running anything, but just discussing how to set up the code. If
@@ -1790,7 +1803,7 @@ definition?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> HINT: Is this how you would run your analysis locally? </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The job above will work, but it’s inefficient:</p>
 <ul>
@@ -1854,41 +1867,152 @@ the setup.</li>
 <span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
 <span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
 <span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
-<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
-<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
-<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
-<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
-<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
-<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
-<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
-<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="fu">check_events</span><span class="kw">:</span></span>
-<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
-<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
-<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_run</span></span>
-<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> check</span></span>
-<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
-<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
-<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
-<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a><span class="at">    </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
-<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="at">    </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
-<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="at">    </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
-<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
-<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
-<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
-<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
-<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
-<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a><span class="fu">check_events</span><span class="kw">:</span></span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_run</span></span>
+<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> check</span></span>
+<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a><span class="at">    </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="at">    </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a><span class="at">    </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb3-76"><a href="#cb3-76" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb3-77"><a href="#cb3-77" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb3-78"><a href="#cb3-78" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb3-79"><a href="#cb3-79" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-80"><a href="#cb3-80" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb3-81"><a href="#cb3-81" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb3-82"><a href="#cb3-82" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb3-83"><a href="#cb3-83" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
 </div>
-<p>If you are satisfied with your pipeline, commit and push the changes.
-Check the pipeline logs for errors and verify that output files are
-produced as expected.</p>
+<p>For the compiled code to be available in subsequent steps, the
+artifacts must be explicitly defined. In the <code>cmssw_compile</code>
+job, we specify:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="at">  </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span></code></pre>
+</div>
+<p><strong>Key options:</strong></p>
+<ul>
+<li>
+<strong><code>untracked: true</code>:</strong> Includes files not
+tracked by git (ignores <code>.gitignore</code>), ensuring the full
+CMSSW build area is captured.</li>
+<li>
+<strong><code>expire_in</code>:</strong> Specifies how long
+artifacts are kept before automatic deletion. Use <code>1 hour</code>
+for testing or <code>1 week</code> for longer workflows.</li>
+<li>
+<strong><code>paths</code>:</strong> Lists directories/files to
+preserve. Here, <code>${CMSSW_RELEASE}</code> captures the entire CMSSW
+work area.</li>
+</ul>
+<div id="artifacts-are-write-protected" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="artifacts-are-write-protected" class="callout-inner">
+<h3 class="callout-title">Artifacts Are Write-Protected</h3>
+<div class="callout-content">
+<p>Artifacts are write-protected by default. You cannot modify files
+directly in the artifact directory in downstream jobs.</p>
+</div>
+</div>
+</div>
+<p>To work around this, copy the artifact to a new directory and add
+write permissions:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span></code></pre>
+</div>
+<p>This ensures <code>cmssw_run</code> and <code>check_events</code> can
+reuse the built CMSSW area without rebuilding, while still being able to
+write output files.</p>
+</div>
+<div class="section level3">
+<h3 id="using-needs-vs-dependencies">Using <code>needs</code> vs <code>dependencies</code>
+<a class="anchor" aria-label="anchor" href="#using-needs-vs-dependencies"></a>
+</h3>
+<p>In the pipeline above, we use the <code>needs</code> keyword to
+define job dependencies:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">cmssw_run</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">  # ...</span></span></code></pre>
+</div>
+<p><strong>Differences between <code>needs</code> and
+<code>dependencies</code>:</strong></p>
+<table class="table">
+<colgroup>
+<col width="47%">
+<col width="52%">
+</colgroup>
+<thead><tr class="header">
+<th>Keyword</th>
+<th>Behavior</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://docs.gitlab.com/ci/yaml/needs/" class="external-link"><code>needs</code></a></td>
+<td>Job starts <strong>immediately</strong> when the needed job
+completes, regardless of stage. Enables parallelism.</td>
+</tr>
+<tr class="even">
+<td><a href="https://docs.gitlab.com/ci/yaml/#dependencies" class="external-link"><code>dependencies</code></a></td>
+<td>Job starts only when <strong>all jobs in the prior stage</strong>
+complete. Strictly follows stage order.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best practice:</strong> Use <code>needs</code> for faster
+pipelines—it allows jobs to start as soon as their dependencies are met,
+rather than waiting for an entire stage to finish.</p>
 <div id="how-does-this-updated-pipeline-improve-efficiency" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1907,7 +2031,7 @@ efficiency?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> HINT: Are we repeating any steps unnecessarily? </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>
@@ -1918,24 +2042,24 @@ it as an artifact.</li>
 re-building.</li>
 <li>Global variables can avoid repetition:</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">...</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">variables:</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">  CMS_PATH: /cvmfs/cms.cern.ch</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">  CMSSW_RELEASE: CMSSW_10_6_30</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">  SCRAM_ARCH: slc7_amd64_gcc700</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">cmssw_compile:</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">  image: registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">  stage: compile</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">  tags:</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">    - k8s-cvmfs</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">  script:</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">    - set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">    - export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">...</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">...</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">variables:</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">  CMS_PATH: /cvmfs/cms.cern.ch</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">  CMSSW_RELEASE: CMSSW_10_6_30</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">  SCRAM_ARCH: slc7_amd64_gcc700</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">cmssw_compile:</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">  image: registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">  stage: compile</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">  tags:</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">    - k8s-cvmfs</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">  script:</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">    - set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">    - export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">...</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1946,7 +2070,7 @@ re-building.</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline run successfully? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If yes, you dont need the rest of the lessons. If they are failing,
 continue with the next lesson.</p>
@@ -1964,10 +2088,23 @@ continue with the next lesson.</p>
 <ul>
 <li>GitLab CI runs on remote runners; every dependency and setup step
 must be in <code>.gitlab-ci.yml</code>.</li>
+<li>Use CVMFS-enabled Kubernetes runners (<code>k8s-cvmfs</code>); the
+<code>image:</code> keyword is honored only there.</li>
 <li>Split the pipeline into stages and pass the built CMSSW area via
 artifacts to avoid rebuilding in each job.</li>
 <li>Validate outputs in CI (e.g., <code>myZPeak.root</code>, event
 counts) to catch issues early; inspect job logs for failures.</li>
+<li>Artifacts are write-protected by default; downstream jobs must copy
+them to a writable directory using <code>mkdir</code>,
+<code>cp -r</code>, and <code>chmod -R +w</code>.</li>
+<li>Define artifacts with <code>untracked: true</code> to capture build
+outputs, and set <code>expire_in</code> to control automatic cleanup
+(e.g., <code>1 hour</code> for testing, <code>1 week</code> for
+production).</li>
+<li>Use the <code>needs</code> keyword for faster pipelines—jobs start
+immediately when dependencies complete, rather than waiting for entire
+stages to finish. <code>dependencies</code> is an alternative that
+strictly respects stage order.</li>
 </ul>
 </div>
 </div>
@@ -2030,16 +2167,12 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
 </section></section><section id="aio-05-gitlabci-vomsproxy"><p>Content from <a href="05-gitlabci-vomsproxy.html">Securely adding passwords and files to GitLab</a></p>
 <hr>
-<p>Last updated on 2025-12-21 |
+<p>Last updated on 2025-12-23 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/05-gitlabci-vomsproxy.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -2215,7 +2348,7 @@ or <code>-D</code> (macOS) flag.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2446,7 +2579,7 @@ analysis with <code>cmsRun</code> and access CMS data on EOS!</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline succeed this time? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>Even with the <code>voms_proxy_test</code> job added, you still need
 to export your grid proxy as artifact and added in the analysis job to
@@ -2627,13 +2760,819 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
+</section></section><section id="aio-06-catservices"><p>Content from <a href="06-catservices.html">CAT services for GitLab CI</a></p>
+<hr>
+<p>Last updated on 2025-12-23 |
+
+        <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/06-catservices.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I access CMS data stored on EOS from GitLab CI without
+managing my own grid certificates?</li>
+<li>What are CAT services and why do they only work in the
+<code>cms-analysis</code> namespace?</li>
+<li>How do I request authentication tokens for EOS access and VOMS
+proxies in CI jobs?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the purpose and security model of CAT services for GitLab
+CI.</li>
+<li>Use the CAT EOS file service to access CMS data on EOS via
+JWT-authenticated tokens.</li>
+<li>Use the CAT VOMS proxy service to obtain a grid proxy for the CMS VO
+without storing personal certificates.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="did-you-find-it-difficult-to-access-cms-data-in-gitlab-cicd" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="did-you-find-it-difficult-to-access-cms-data-in-gitlab-cicd" class="callout-inner">
+<h3 class="callout-title">Did you find it difficult to access CMS data
+in GitLab CI/CD?</h3>
+<div class="callout-content">
+<p>Accessing CMS data stored on EOS or using grid resources in GitLab
+CI/CD can be challenging, especially for newcomers. You must manage
+authentication, permissions, and complex data access methods. The Common
+Analysis Tools (CAT) group in CMS provides services to simplify these
+tasks.</p>
+</div>
+</div>
+</div>
+<div id="why-cern-gitlab-instead-of-github" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="why-cern-gitlab-instead-of-github" class="callout-inner">
+<h3 class="callout-title">Why CERN GitLab Instead of GitHub?</h3>
+<div class="callout-content">
+<p>CERN GitLab is tailored for the CERN community and offers seamless
+integration with CERN infrastructure: CVMFS, EOS storage, and grid
+computing resources. This makes it ideal for CMS analysts working with
+large datasets and complex workflows.</p>
+<p>If you host your analysis on GitHub, you must manually set up access
+to CMS resources—a cumbersome and error-prone process. CERN GitLab lets
+you leverage <strong>CAT services</strong> that simplify data access and
+authentication, so you can focus on analysis rather than
+infrastructure.</p>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="the-cms-analysiscms-analysis-user-code-space">The <a href="https://gitlab.cern.ch/cms-analysis" class="external-link">cms-analysis</a>
+user code space<a class="anchor" aria-label="anchor" href="#the-cms-analysiscms-analysis-user-code-space"></a>
+</h2>
+<hr class="half-width">
+<p>The Common Analysis Tools (CAT) group maintains a dedicated CERN
+GitLab namespace called <a href="https://gitlab.cern.ch/cms-analysis" class="external-link">cms-analysis</a>, where any
+CMS member can store their analysis code. It is documented in the <a href="https://cms-analysis.docs.cern.ch/code/" class="external-link">CAT documentation
+pages</a>.</p>
+<p>The namespace is organized into groups and subgroups following the
+CMS Physics Coordination structure. You can request an area in the
+PAG-specific group that best matches your analysis.</p>
+<div class="section level3">
+<h3 id="request-an-area-anytime">Request an Area Anytime<a class="anchor" aria-label="anchor" href="#request-an-area-anytime"></a>
+</h3>
+<p>Keep your analysis code under version control from the start. You can
+request an area at any stage (in fact we invite you to do so):</p>
+<ul>
+<li>You can create an area with a temporary name initially, then rename
+it to match your CADI line when the analysis matures.</li>
+<li>Request an area for your analysis at <a href="https://gitlab.cern.ch/cms-analysis" class="external-link">cms-analysis</a>.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="the-services-described-here-only-work-in-cms-analysiscms-analysis">The services described here only work in <a href="https://gitlab.cern.ch/cms-analysis" class="external-link">cms-analysis</a>
+<a class="anchor" aria-label="anchor" href="#the-services-described-here-only-work-in-cms-analysiscms-analysis"></a>
+</h3>
+<p>For security reasons, the services described here <strong>only work
+if your project is in the <code>cms-analysis</code>
+namespace</strong>.</p>
+<p>To move your current project:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Settings &gt; General &gt; Advanced &gt; Transfer
+project</strong>.</li>
+<li>Select <code>cms-analysis/CMSDAS/CAT-tutorials</code> as the new
+namespace (for testing).</li>
+<li>For production work, select the relevant POG/PAG subgroup.</li>
+</ol>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="using-the-cat-eos-file-service">Using the CAT EOS file service<a class="anchor" aria-label="anchor" href="#using-the-cat-eos-file-service"></a>
+</h2>
+<hr class="half-width">
+<p>CAT maintains a service account, <code>cmscat</code>, that has CMS VO
+membership and can access EOS. CAT provides a service to request
+short-lived EOS tokens in CI jobs, allowing you to access CMS files on
+behalf of the <code>cmscat</code> service account.</p>
+<p><strong>Files accessible:</strong>
+<code>/eos/cms/store/group/cat</code></p>
+<p>For detailed documentation, see the <a href="https://cms-analysis.docs.cern.ch/code/services/#usage-of-gitlab-ci-dataset-service" class="external-link">CAT
+CI dataset service</a>.</p>
+<div class="section level3">
+<h3 id="the-file-you-need-is-not-there">The file you need is not there?<a class="anchor" aria-label="anchor" href="#the-file-you-need-is-not-there"></a>
+</h3>
+<p>If the file you need is not in <code>/eos/cms/store/group/cat</code>,
+request it by creating a merge request to <a href="https://gitlab.cern.ch/cms-analysis/services/ci-dataset-files/-/blob/master/datasets.txt" class="external-link">cms-analysis/services/ci-dataset-files</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="how-the-service-works">How the Service Works<a class="anchor" aria-label="anchor" href="#how-the-service-works"></a>
+</h3>
+<p>Two steps are required:</p>
+<p><strong>Step 1:</strong> Configure your job to create a JWT (JSON Web
+Token) for authentication:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">  </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">    </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-ci-datasets.app.cern.ch"</span></span></code></pre>
+</div>
+<p><strong>Step 2:</strong> Query the CAT service to get a short-lived
+EOS token:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">XrdSecsssENDORSEMENT</span><span class="op">=</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-H</span> <span class="st">"Authorization: </span><span class="va">${MY_JOB_JWT}</span><span class="st">"</span> <span class="st">"https://cms-cat-ci-datasets.app.cern.ch/api?eospath=</span><span class="va">${EOSPATH}</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="dt">\"</span><span class="va">)</span></span></code></pre>
+</div>
+<p>Then access the file using:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">root://eoscms.cern.ch/</span><span class="va">${EOSPATH}</span><span class="ex">?authz=</span><span class="va">${XrdSecsssENDORSEMENT}</span><span class="kw">&amp;</span><span class="ex">xrd.wantprot=unix</span></span></code></pre>
+</div>
+<p>Where <code>EOSPATH</code> is a variable holding a path of a file on
+EOS. Now you can access the file with a path that includes the newly
+generated token at the end, as:
+<code>root://eoscms.cern.ch/${EOSPATH}?authz=${XrdSecsssENDORSEMENT}&amp;xrd.wantprot=unix</code>.</p>
+<div id="exercise-copy-a-file-using-the-cat-eos-service" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="exercise-copy-a-file-using-the-cat-eos-service" class="callout-inner">
+<h3 class="callout-title">Exercise: Copy a File Using the CAT EOS
+Service</h3>
+<div class="callout-content">
+<p>Try copying this file from the CAT storage:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">/eos/cms/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">test_eos_service</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cvmfs</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">  </span><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">    </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="at">      </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-ci-datasets.app.cern.ch"</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="at">    </span><span class="fu">EOSPATH</span><span class="kw">:</span><span class="at"> </span><span class="st">'/eos/cms/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root'</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="at">    </span><span class="fu">EOS_MGM_URL</span><span class="kw">:</span><span class="at"> root://eoscms.cern.ch</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'XrdSecsssENDORSEMENT=$(curl -H "Authorization: ${MY_JOB_JWT}" "https://cms-cat-ci-datasets.app.cern.ch/api?eospath=${EOSPATH}" | tr -d \")'</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> xrdcp "${EOS_MGM_URL}/${EOSPATH}?authz=${XrdSecsssENDORSEMENT}&amp;xrd.wantprot=unix" test.root</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l test.root</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="using-the-cat-voms-proxy-service">Using the CAT VOMS Proxy Service<a class="anchor" aria-label="anchor" href="#using-the-cat-voms-proxy-service"></a>
+</h2>
+<hr class="half-width">
+<p>The <code>cmscat</code> service account is a CMS VO member and can
+request VOMS proxies. If your project is in <code>cms-analysis</code>,
+it can request a VOMS proxy from a service at
+<code>cms-cat-grid-proxy-service.app.cern.ch</code>, in much the same
+way as the CAT EOS service requests a proxy to
+<code>cms-cat-ci-datasets.app.cern.ch</code> above.</p>
+<p>The proxy is returned as a <code>base64</code>-encoded string with a
+lifetime matching your CI job duration.</p>
+<div class="section level3">
+<h3 id="exercise-set-up-a-ci-job-to-obtain-a-grid-proxy">Exercise: Set up a CI Job to Obtain a Grid Proxy<a class="anchor" aria-label="anchor" href="#exercise-set-up-a-ci-job-to-obtain-a-grid-proxy"></a>
+</h3>
+<p>Set up a CI job that retrieves and validates a VOMS proxy from the
+CAT service.</p>
+<p><strong>Step 1:</strong> Configure your job to create a JWT:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="at">  </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="at">    </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-grid-proxy-service.app.cern.ch"</span></span></code></pre>
+</div>
+<p><strong>Step 2:</strong> Query the CAT service to get a proxy:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">proxy</span><span class="op">=</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">--fail-with-body</span> <span class="at">-H</span> <span class="st">"Authorization: </span><span class="va">${MY_JOB_JWT}</span><span class="st">"</span> <span class="st">"https://cms-cat-grid-proxy-service.app.cern.ch/api"</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="at">-d</span> <span class="dt">\"</span><span class="va">)</span></span></code></pre>
+</div>
+<p><strong>Step 3:</strong> Decode and store the proxy:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> printf $proxy | base64 -d &gt; myproxy</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export X509_USER_PROXY=$(pwd)/myproxy</span></span></code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="important-cvmfs-and-environment-variables">Important: CVMFS and Environment Variables<a class="anchor" aria-label="anchor" href="#important-cvmfs-and-environment-variables"></a>
+</h3>
+<p>Your image <strong>must have CVMFS mounted</strong> (e.g.,
+<code>tags: [cvmfs]</code>). Depending on the image environment, you may
+also need to export grid security variables:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export X509_VOMS_DIR=/cvmfs/grid.cern.ch/etc/grid-security/vomsdir/</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export VOMS_USERCONF=/cvmfs/grid.cern.ch/etc/grid-security/vomses/</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export X509_CERT_DIR=/cvmfs/grid.cern.ch/etc/grid-security/certificates/</span></span></code></pre>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Solution: CAT VOMS Proxy Service </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">test_proxy_service</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cvmfs</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="at">  </span><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="at">    </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="at">      </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-grid-proxy-service.app.cern.ch"</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'proxy=$(curl -H "Authorization: ${MY_JOB_JWT}" "https://cms-cat-grid-proxy-service.app.cern.ch/api" | tr -d \")'</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf $proxy | base64 -d &gt; myproxy</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export X509_USER_PROXY=$(pwd)/myproxy</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export X509_CERT_DIR=/cvmfs/grid.cern.ch/etc/grid-security/certificates/</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>With both CAT services in place, you now have automatic, secure
+access to CMS data and grid resources in your CI pipeline—no manual
+certificate management required!</p>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>CAT services simplify CMS resource access in GitLab CI by
+eliminating manual certificate and credential management.</li>
+<li>CAT services only work in the <code>cms-analysis</code> namespace
+for security; move your project there via <strong>Settings &gt; General
+&gt; Advanced &gt; Transfer project</strong>.</li>
+<li>The CAT EOS file service provides JWT-authenticated access to
+datasets in <code>/eos/cms/store/group/cat</code> via the
+<code>cmscat</code> service account.</li>
+<li>The CAT VOMS proxy service provides short-lived grid proxies without
+storing personal certificates; proxies are returned as base64-encoded
+strings.</li>
+<li>Both services require configuring <code>id_tokens</code> in
+<code>.gitlab-ci.yml</code> and querying CAT endpoints to retrieve
+authentication tokens.</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+<!-- [pandoc]: https://pandoc.org/MANUAL.html
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[carpentries-workbench]: https://carpentries.github.io/sandpaper-docs/
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[ci]: http://communityin.org/
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[contrib-covenant]: https://contributor-covenant.org/
+[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
+[cran-knitr]: https://cran.r-project.org/package=knitr
+[cran-stringr]: https://cran.r-project.org/package=stringr
+[dc-lessons]: http://www.datacarpentry.org/lessons/
+[email]: mailto:team@carpentries.org
+[github-importer]: https://import.github.com/
+[importer]: https://github.com/new/import
+[jekyll-collection]: https://jekyllrb.com/docs/collections/
+[jekyll-install]: https://jekyllrb.com/docs/installation/
+[jekyll-windows]: http://jekyll-windows.juthilo.com/
+[jekyll]: https://jekyllrb.com/
+[jupyter]: https://jupyter.org/
+[kramdown]: https://kramdown.gettalong.org/
+[lc-lessons]: https://librarycarpentry.org/lessons/
+[lesson-example]: https://carpentries.github.io/lesson-example/
+[mit-license]: https://opensource.org/licenses/mit-license.html
+[morea]: https://morea-framework.github.io/
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org
+[pandoc]: https://pandoc.org/
+[paper-now]: https://github.com/PeerJ/paper-now
+[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
+[pyyaml]: https://pypi.python.org/pypi/PyYAML
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
+[ruby-installer]: https://rubyinstaller.org/
+[rubygems]: https://rubygems.org/pages/download/
+[styles]: https://github.com/carpentries/styles/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-releases]: https://github.com/swcarpentry/swc-releases
+[training]: https://carpentries.github.io/instructor-training/
+[yaml]: http://yaml.org/
+[bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
+
+[payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
+[gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
+[lesson-gitlab-artifacts]: https://hsf-training.github.io/hsf-training-cicd/11-skim-milk/index.html#artifacts
+[lesson-gitlab-secrets]: https://hsf-training.github.io/hsf-training-cicd/12-the-spy-game/index.html
+[lesson-gitlab]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
+[workshop-indico]: https://indico.cern.ch/event/854880/
+[hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
+-->
+</div>
+</section></section><section id="aio-07-final-run"><p>Content from <a href="07-final-run.html">Putting It All Together: Final Run with CAT Services</a></p>
+<hr>
+<p>Last updated on 2025-12-23 |
+
+        <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/07-final-run.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do I combine CMSSW compilation, data access, and authentication
+into a single CI/CD pipeline?</li>
+<li>What are the trade-offs between using personal grid credentials
+versus CAT services?</li>
+<li>How can I use both CAT EOS and VOMS proxy services in the same
+pipeline?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Create a complete <code>.gitlab-ci.yml</code> pipeline that compiles
+CMSSW, obtains authentication, and runs analysis on EOS data.</li>
+<li>Implement data access using either CAT EOS file service or CAT VOMS
+proxy service.</li>
+<li>Compare and choose between personal credentials and CAT services
+based on your workflow.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="putting-it-all-together-final-run-with-cat-services">Putting It All Together: Final Run with CAT Services<a class="anchor" aria-label="anchor" href="#putting-it-all-together-final-run-with-cat-services"></a>
+</h2>
+<hr class="half-width">
+<p>In this final episode, you will combine everything you’ve learned to
+build a complete GitLab CI/CD pipeline that runs a CMSSW analysis using
+CAT services for data access and authentication. Your pipeline will
+include:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Set up the CMSSW environment</strong> — Configure CMSSW
+version and environment variables.</li>
+<li>
+<strong>Obtain authentication</strong> — Use CAT services or
+personal grid credentials for CMS resource access.</li>
+<li>
+<strong>Access CMS data on EOS</strong> — Read input datasets via
+XRootD.</li>
+<li>
+<strong>Run the CMSSW analysis</strong> — Execute analysis code on
+input data.</li>
+<li>
+<strong>Validate output</strong> — Store and review analysis
+results.</li>
+</ol>
+<hr></section><section><h2 class="section-heading" id="accessing-files-on-eos-via-xrootd">Accessing Files on EOS via XRootD<a class="anchor" aria-label="anchor" href="#accessing-files-on-eos-via-xrootd"></a>
+</h2>
+<hr class="half-width">
+<p>Most analyses run on centrally produced files stored on EOS. To
+access them, you need a valid grid proxy for the CMS Virtual
+Organisation (VO).</p>
+<p>We have already used EOS files in previous lessons. For this final
+example, we’ll explicitly define and use a single file from the <a href="https://cmsweb.cern.ch/das/request?input=dataset%3D%2FDYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8%2FRunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2%2FMINIAODSIM&amp;instance=prod/global" class="external-link">DYJetsToLL
+dataset</a>.</p>
+<p>A copy is stored permanently on EOS at:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>/eos/cms/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root</code></pre>
+</div>
+<div class="section level3">
+<h3 id="test-locally-first">Test Locally First<a class="anchor" aria-label="anchor" href="#test-locally-first"></a>
+</h3>
+<p>Before running in CI, test file access on your local machine:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">cd</span> <span class="va">${CMSSW_BASE}</span>/src/AnalysisCode/ZPeakAnalysis/</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">cmsRun</span> test/MyZPeak_cfg.py inputFiles=/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> myZPeak.root</span></code></pre>
+</div>
+<p>This verifies your grid proxy and data access setup before committing
+to CI.</p>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="three-approaches-complete-examples">Three Approaches: Complete Examples<a class="anchor" aria-label="anchor" href="#three-approaches-complete-examples"></a>
+</h2>
+<hr class="half-width">
+<p>We show three different approaches to running your analysis in CI.
+Choose the one that best fits your use case.</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-1" type="button" role="tab" aria-controls="nav-tabpanel-1-1" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-1">
+  Approach 1: Using Personal Grid Credentials
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-2" type="button" role="tab" aria-controls="nav-tabpanel-1-2" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-2">
+  Approach 2: Using CAT EOS File Service
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-3" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-3" type="button" role="tab" aria-controls="nav-tabpanel-1-3" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-3">
+  Approach 3: Using CAT VOMS Proxy Service
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
+<p>If your project is in a personal namespace (not
+<code>cms-analysis</code>), use your own grid credentials stored as
+protected CI/CD variables:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">cmssw_run</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cvmfs</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="at">    </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="at">    </span><span class="fu">EOS_MGM_URL</span><span class="kw">:</span><span class="at"> </span><span class="st">"root://eoscms.cern.ch"</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="at">    </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="at">    </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir run</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py inputFiles=/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+</div>
+<p><strong>Pros:</strong> Full control; works in any namespace.<br><strong>Cons:</strong> Requires managing your own credentials; higher
+security risk if exposed.</p>
+</div>
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
+<p>If your project is in <code>cms-analysis</code>, use the CAT EOS file
+service for simple file access:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> compile</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> run</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="at">  </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="at">  </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="at">  </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">cmssw_compile</span><span class="kw">:</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsrel ${CMSSW_RELEASE}</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scram b -j 4</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="fu">cmssw_run_eos_service</span><span class="kw">:</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">job</span><span class="kw">:</span><span class="at"> cmssw_compile</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="at">      </span><span class="fu">artifacts</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a><span class="at">  </span><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a><span class="at">    </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="at">      </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-ci-datasets.app.cern.ch"</span></span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="at">    </span><span class="fu">EOSPATH</span><span class="kw">:</span><span class="at"> </span><span class="st">'/eos/cms/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root'</span></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="at">    </span><span class="fu">EOS_MGM_URL</span><span class="kw">:</span><span class="at"> </span><span class="st">"root://eoscms.cern.ch"</span></span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'XrdSecsssENDORSEMENT=$(curl -H "Authorization: ${MY_JOB_JWT}" "https://cms-cat-ci-datasets.app.cern.ch/api?eospath=${EOSPATH}" | tr -d \")'</span></span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir run</span></span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py inputFiles="${EOS_MGM_URL}/${EOSPATH}?authz=${XrdSecsssENDORSEMENT}&amp;xrd.wantprot=unix"</span></span>
+<span id="cb4-59"><a href="#cb4-59" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb4-60"><a href="#cb4-60" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py</span></span>
+<span id="cb4-61"><a href="#cb4-61" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+</div>
+<p><strong>Pros:</strong> No personal credential management; secure;
+requires no CI/CD variables.<br><strong>Cons:</strong> Only works in <code>cms-analysis</code>
+namespace; limited to CAT-hosted files.</p>
+</div>
+<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
+<p>For maximum flexibility, use the CAT VOMS proxy service to access any
+CMS data:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> compile</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> run</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">  </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">  </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="at">  </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">cmssw_compile</span><span class="kw">:</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsrel ${CMSSW_RELEASE}</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scram b -j 4</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="fu">cmssw_run_proxy_service</span><span class="kw">:</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">job</span><span class="kw">:</span><span class="at"> cmssw_compile</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="at">      </span><span class="fu">artifacts</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="at">  </span><span class="fu">id_tokens</span><span class="kw">:</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="at">    </span><span class="fu">MY_JOB_JWT</span><span class="kw">:</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="at">      </span><span class="fu">aud</span><span class="kw">:</span><span class="at"> </span><span class="st">"cms-cat-grid-proxy-service.app.cern.ch"</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="at">    </span><span class="fu">EOS_MGM_URL</span><span class="kw">:</span><span class="at"> </span><span class="st">"root://eoscms.cern.ch"</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a><span class="at">    </span><span class="fu">EOSPATH</span><span class="kw">:</span><span class="at"> </span><span class="st">'/store/group/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root'</span></span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">'proxy=$(curl -H "Authorization: ${MY_JOB_JWT}" "https://cms-cat-grid-proxy-service.app.cern.ch/api" | tr -d \")'</span></span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${proxy}" | base64 -d &gt; myproxy</span></span>
+<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export X509_USER_PROXY=$(pwd)/myproxy</span></span>
+<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export X509_CERT_DIR=/cvmfs/grid.cern.ch/etc/grid-security/certificates/</span></span>
+<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info</span></span>
+<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir run</span></span>
+<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py inputFiles=${EOSPATH}</span></span>
+<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py</span></span>
+<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+</div>
+<p><strong>Pros:</strong> Maximum flexibility; works for any CMS
+dataset; no credential storage.<br><strong>Cons:</strong> Only works in <code>cms-analysis</code>
+namespace; slightly more complex setup.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="challenge-create-your-complete-pipeline">Challenge: Create Your Complete Pipeline<a class="anchor" aria-label="anchor" href="#challenge-create-your-complete-pipeline"></a>
+</h2>
+<hr class="half-width">
+<div id="discussion1" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div class="callout-inner">
+<h3 class="callout-title">Challenge</h3>
+<div class="callout-content">
+<p>Choose one of the three approaches above and implement a complete
+<code>.gitlab-ci.yml</code> file that:</p>
+<ol style="list-style-type: decimal">
+<li>Compiles your CMSSW analysis code.</li>
+<li>Obtains authentication (using your chosen method).</li>
+<li>Runs the analysis on the example file.</li>
+<li>Validates the output.</li>
+</ol>
+<p>Commit and push to GitLab, then check the <strong>CI/CD &gt;
+Pipelines</strong> page to see it run. What happens? Did it succeed?</p>
+</div>
+</div>
+</div>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>Congratulations! You have now built a complete, production-ready
+CI/CD pipeline for CMS analysis using GitLab. You can extend this
+pattern to multiple datasets, batch processing, and complex
+workflows.</p>
+</div>
+</div>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+<!-- [pandoc]: https://pandoc.org/MANUAL.html
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[carpentries-workbench]: https://carpentries.github.io/sandpaper-docs/
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[ci]: http://communityin.org/
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[contrib-covenant]: https://contributor-covenant.org/
+[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
+[cran-knitr]: https://cran.r-project.org/package=knitr
+[cran-stringr]: https://cran.r-project.org/package=stringr
+[dc-lessons]: http://www.datacarpentry.org/lessons/
+[email]: mailto:team@carpentries.org
+[github-importer]: https://import.github.com/
+[importer]: https://github.com/new/import
+[jekyll-collection]: https://jekyllrb.com/docs/collections/
+[jekyll-install]: https://jekyllrb.com/docs/installation/
+[jekyll-windows]: http://jekyll-windows.juthilo.com/
+[jekyll]: https://jekyllrb.com/
+[jupyter]: https://jupyter.org/
+[kramdown]: https://kramdown.gettalong.org/
+[lc-lessons]: https://librarycarpentry.org/lessons/
+[lesson-example]: https://carpentries.github.io/lesson-example/
+[mit-license]: https://opensource.org/licenses/mit-license.html
+[morea]: https://morea-framework.github.io/
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org
+[pandoc]: https://pandoc.org/
+[paper-now]: https://github.com/PeerJ/paper-now
+[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
+[pyyaml]: https://pypi.python.org/pypi/PyYAML
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
+[ruby-installer]: https://rubyinstaller.org/
+[rubygems]: https://rubygems.org/pages/download/
+[styles]: https://github.com/carpentries/styles/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-releases]: https://github.com/swcarpentry/swc-releases
+[training]: https://carpentries.github.io/instructor-training/
+[yaml]: http://yaml.org/
+[bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
+
+[payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
+[gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
+[lesson-gitlab-artifacts]: https://hsf-training.github.io/hsf-training-cicd/11-skim-milk/index.html#artifacts
+[lesson-gitlab-secrets]: https://hsf-training.github.io/hsf-training-cicd/12-the-spy-game/index.html
+[lesson-gitlab]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
+[workshop-indico]: https://indico.cern.ch/event/854880/
+[hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
+-->
 </section></section>
 </div>
     </main>

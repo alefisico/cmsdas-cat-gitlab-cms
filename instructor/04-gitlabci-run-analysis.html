@@ -119,11 +119,11 @@
   GitLab CI for CMS
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 60%" class="percentage">
-    60%
+<aside class="col-md-12 lesson-progress"><div style="width: 43%" class="percentage">
+    43%
   </div>
   <div class="progress cmscat">
-    <div class="progress-bar cmscat" role="progressbar" style="width: 60%" aria-valuenow="60" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar cmscat" role="progressbar" style="width: 43%" aria-valuenow="43" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -260,6 +260,24 @@
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-catservices.html">6. CAT services for GitLab CI</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-final-run.html">7. Putting It All Together: Final Run with CAT Services</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -318,7 +336,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Running a CMSSW analysis in GitLab CI/CD</h1>
-        <p>Last updated on 2025-12-21 |
+        <p>Last updated on 2025-12-23 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/04-gitlabci-run-analysis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -355,7 +373,8 @@ stages?</li>
 <ul><li>Run a CMSSW analysis job in GitLab CI using a CVMFS-enabled
 runner.</li>
 <li>Configure <code>.gitlab-ci.yml</code> to reuse a built CMSSW release
-via artifacts instead of rebuilding each time.</li>
+via artifacts instead of rebuilding each time, and handle
+write-protection in downstream jobs.</li>
 <li>Validate the analysis output (ROOT file and event counts) within the
 CI pipeline.</li>
 </ul></div>
@@ -368,7 +387,7 @@ CI pipeline.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Notice that, <strong>on purpose</strong>, students in this lesson we
 are NOT running anything, but just discussing how to set up the code. If
@@ -449,7 +468,7 @@ definition?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> HINT: Is this how you would run your analysis locally? </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The job above will work, but it’s inefficient:</p>
 <ul><li>CMSSW setup (release download, build) runs every time.</li>
@@ -510,41 +529,135 @@ the setup.</li>
 <span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
 <span id="cb3-43"><a href="#cb3-43" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
 <span id="cb3-44"><a href="#cb3-44" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
-<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
-<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
-<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
-<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
-<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
-<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
-<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
-<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="fu">check_events</span><span class="kw">:</span></span>
-<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
-<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
-<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_run</span></span>
-<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> check</span></span>
-<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
-<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
-<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
-<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a><span class="at">    </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
-<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="at">    </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
-<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="at">    </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
-<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
-<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
-<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
-<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
-<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
-<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+<span id="cb3-45"><a href="#cb3-45" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb3-46"><a href="#cb3-46" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb3-47"><a href="#cb3-47" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb3-48"><a href="#cb3-48" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-49"><a href="#cb3-49" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb3-50"><a href="#cb3-50" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb3-51"><a href="#cb3-51" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb3-52"><a href="#cb3-52" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb3-53"><a href="#cb3-53" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
+<span id="cb3-54"><a href="#cb3-54" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb3-55"><a href="#cb3-55" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb3-56"><a href="#cb3-56" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-57"><a href="#cb3-57" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb3-58"><a href="#cb3-58" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb3-59"><a href="#cb3-59" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb3-60"><a href="#cb3-60" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" tabindex="-1"></a><span class="fu">check_events</span><span class="kw">:</span></span>
+<span id="cb3-62"><a href="#cb3-62" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb3-63"><a href="#cb3-63" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb3-64"><a href="#cb3-64" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_run</span></span>
+<span id="cb3-65"><a href="#cb3-65" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> check</span></span>
+<span id="cb3-66"><a href="#cb3-66" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb3-67"><a href="#cb3-67" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb3-68"><a href="#cb3-68" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8s-cvmfs</span></span>
+<span id="cb3-69"><a href="#cb3-69" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb3-70"><a href="#cb3-70" tabindex="-1"></a><span class="at">    </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb3-71"><a href="#cb3-71" tabindex="-1"></a><span class="at">    </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb3-72"><a href="#cb3-72" tabindex="-1"></a><span class="at">    </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb3-73"><a href="#cb3-73" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb3-74"><a href="#cb3-74" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb3-75"><a href="#cb3-75" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb3-76"><a href="#cb3-76" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb3-77"><a href="#cb3-77" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb3-78"><a href="#cb3-78" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb3-79"><a href="#cb3-79" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-80"><a href="#cb3-80" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb3-81"><a href="#cb3-81" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb3-82"><a href="#cb3-82" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb3-83"><a href="#cb3-83" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
 </div>
-<p>If you are satisfied with your pipeline, commit and push the changes.
-Check the pipeline logs for errors and verify that output files are
-produced as expected.</p>
+<p>For the compiled code to be available in subsequent steps, the
+artifacts must be explicitly defined. In the <code>cmssw_compile</code>
+job, we specify:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="at">  </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span></code></pre>
+</div>
+<p><strong>Key options:</strong></p>
+<ul><li>
+<strong><code>untracked: true</code>:</strong> Includes files not
+tracked by git (ignores <code>.gitignore</code>), ensuring the full
+CMSSW build area is captured.</li>
+<li>
+<strong><code>expire_in</code>:</strong> Specifies how long
+artifacts are kept before automatic deletion. Use <code>1 hour</code>
+for testing or <code>1 week</code> for longer workflows.</li>
+<li>
+<strong><code>paths</code>:</strong> Lists directories/files to
+preserve. Here, <code>${CMSSW_RELEASE}</code> captures the entire CMSSW
+work area.</li>
+</ul><div id="artifacts-are-write-protected" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="artifacts-are-write-protected" class="callout-inner">
+<h3 class="callout-title">Artifacts Are Write-Protected</h3>
+<div class="callout-content">
+<p>Artifacts are write-protected by default. You cannot modify files
+directly in the artifact directory in downstream jobs.</p>
+</div>
+</div>
+</div>
+<p>To work around this, copy the artifact to a new directory and add
+write permissions:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mkdir -p run</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cp -r ${CMSSW_RELEASE} run/</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chmod -R +w run/${CMSSW_RELEASE}/</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cd run/${CMSSW_RELEASE}/src</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span></code></pre>
+</div>
+<p>This ensures <code>cmssw_run</code> and <code>check_events</code> can
+reuse the built CMSSW area without rebuilding, while still being able to
+write output files.</p>
+</div>
+<div class="section level3">
+<h3 id="using-needs-vs-dependencies">Using <code>needs</code> vs <code>dependencies</code>
+<a class="anchor" aria-label="anchor" href="#using-needs-vs-dependencies"></a></h3>
+<p>In the pipeline above, we use the <code>needs</code> keyword to
+define job dependencies:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">cmssw_run</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmssw_compile</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> run</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">  # ...</span></span></code></pre>
+</div>
+<p><strong>Differences between <code>needs</code> and
+<code>dependencies</code>:</strong></p>
+<table class="table"><colgroup><col width="47%"><col width="52%"></colgroup><thead><tr class="header"><th>Keyword</th>
+<th>Behavior</th>
+</tr></thead><tbody><tr class="odd"><td><a href="https://docs.gitlab.com/ci/yaml/needs/" class="external-link"><code>needs</code></a></td>
+<td>Job starts <strong>immediately</strong> when the needed job
+completes, regardless of stage. Enables parallelism.</td>
+</tr><tr class="even"><td><a href="https://docs.gitlab.com/ci/yaml/#dependencies" class="external-link"><code>dependencies</code></a></td>
+<td>Job starts only when <strong>all jobs in the prior stage</strong>
+complete. Strictly follows stage order.</td>
+</tr></tbody></table><p><strong>Best practice:</strong> Use <code>needs</code> for faster
+pipelines—it allows jobs to start as soon as their dependencies are met,
+rather than waiting for an entire stage to finish.</p>
 <div id="how-does-this-updated-pipeline-improve-efficiency" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -563,7 +676,7 @@ efficiency?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> HINT: Are we repeating any steps unnecessarily? </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul><li>
 <code>cmssw_compile</code> sets up and builds CMSSW once and stores
@@ -572,24 +685,24 @@ it as an artifact.</li>
 <code>cmssw_run</code> reuses that artifact and skips
 re-building.</li>
 <li>Global variables can avoid repetition:</li>
-</ul><div class="codewrapper sourceCode" id="cb4">
+</ul><div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">...</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">variables:</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">  CMS_PATH: /cvmfs/cms.cern.ch</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">  CMSSW_RELEASE: CMSSW_10_6_30</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">  SCRAM_ARCH: slc7_amd64_gcc700</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">cmssw_compile:</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">  image: registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">  stage: compile</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">  tags:</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">    - k8s-cvmfs</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">  script:</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">    - set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">    - export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">...</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">...</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">variables:</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">  CMS_PATH: /cvmfs/cms.cern.ch</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">  CMSSW_RELEASE: CMSSW_10_6_30</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">  SCRAM_ARCH: slc7_amd64_gcc700</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">cmssw_compile:</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">  image: registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">  stage: compile</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">  tags:</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">    - k8s-cvmfs</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">  script:</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">    - set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">    - export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="co">...</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -600,7 +713,7 @@ re-building.</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline run successfully? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If yes, you dont need the rest of the lessons. If they are failing,
 continue with the next lesson.</p>
@@ -617,10 +730,23 @@ continue with the next lesson.</p>
 <div class="callout-content">
 <ul><li>GitLab CI runs on remote runners; every dependency and setup step
 must be in <code>.gitlab-ci.yml</code>.</li>
+<li>Use CVMFS-enabled Kubernetes runners (<code>k8s-cvmfs</code>); the
+<code>image:</code> keyword is honored only there.</li>
 <li>Split the pipeline into stages and pass the built CMSSW area via
 artifacts to avoid rebuilding in each job.</li>
 <li>Validate outputs in CI (e.g., <code>myZPeak.root</code>, event
 counts) to catch issues early; inspect job logs for failures.</li>
+<li>Artifacts are write-protected by default; downstream jobs must copy
+them to a writable directory using <code>mkdir</code>,
+<code>cp -r</code>, and <code>chmod -R +w</code>.</li>
+<li>Define artifacts with <code>untracked: true</code> to capture build
+outputs, and set <code>expire_in</code> to control automatic cleanup
+(e.g., <code>1 hour</code> for testing, <code>1 week</code> for
+production).</li>
+<li>Use the <code>needs</code> keyword for faster pipelines—jobs start
+immediately when dependencies complete, rather than waiting for entire
+stages to finish. <code>dependencies</code> is an alternative that
+strictly respects stage order.</li>
 </ul></div>
 </div>
 </div>
@@ -682,11 +808,7 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies
 -->
 </div>
 </section></div> <!-- / div.lesson-content -->
@@ -749,7 +871,7 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/04-gitlabci-run-analysis.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/04-gitlabci-run-analysis.html",
   "dateCreated": "NA",
-  "dateModified": "2025-12-21",
+  "dateModified": "2025-12-23",
   "datePublished": "2025-12-23"
 }
 
