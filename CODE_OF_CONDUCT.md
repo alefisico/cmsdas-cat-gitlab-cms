@@ -10,7 +10,7 @@ We follow the [CERN Code of Conduct](https://hr-dep.web.cern.ch/content/code-of-
 
 We commit to helping our community adhere to this code of conduct and speak up when we see possible violations of it. We strive to treat those outside of CMS as we would members of our own community. In the event that the letter or the spirit of this code has been violated, appropriate action will be taken, up to and including procedures specified in Annex A3.2 of the CMS Constitution.
 
-If you want to know more about the *CMS Diversity & Inclusion Office* follow the [link](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSDiversityOffice) and check out the [booklet](https://heyzine.com/flip-book/00f6546b1c.html).
+You can also learn more about the [CMS Diversity & Inclusion Office](https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSDiversityOffice) and its activities. Dont forget to [check out the booklet](https://heyzine.com/flip-book/00f6546b1c.html).
 
 ---
 

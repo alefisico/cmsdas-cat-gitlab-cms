@@ -9,6 +9,11 @@ any links that you are not going to use.
 [cmssw]: https://cms-sw.github.io/index.html
 [cmssw-faq-addpkg]: https://cms-sw.github.io/faq.html#how-do-i-checkout-one-or-more-packages
 [custom-gitconfig]: https://stackoverflow.com/a/18330114/11743654 
+[cms-analysis]: https://gitlab.cern.ch/cms-analysis
+[cat-docs]: https://cms-analysis.docs.cern.ch/code/
+[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
+[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies 
+
 
 <!-- [pandoc]: https://pandoc.org/MANUAL.html
 [r-markdown]: https://rmarkdown.rstudio.com/
@@ -64,10 +69,6 @@ any links that you are not going to use.
 [gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
 [workshop-indico]: https://indico.cern.ch/event/854880/
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
-[cms-analysis]: https://gitlab.cern.ch/cms-analysis
-[cat-docs]: https://cms-analysis.docs.cern.ch/code/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
-[gitlab-need]: https://docs.gitlab.com/ci/yaml/needs/
-[gitlab-dependencies]: https://docs.gitlab.com/ci/yaml/#dependencies 
 -->
 
