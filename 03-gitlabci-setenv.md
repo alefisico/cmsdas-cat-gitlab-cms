@@ -26,7 +26,7 @@ If you skipped the previous lessons, ensure you have:
 
 - A GitLab repository at CERN GitLab (named `cmsdas-gitlab-cms`).
 - The repository cloned to your local machine with an empty `.gitlab-ci.yml` file.
-- The example [analysis code](../files/ZPeakAnalysis.zip) downloaded and added to your repository.
+- The example [analysis code](files/ZPeakAnalysis.zip) downloaded and added to your repository.
 
 :::::
 

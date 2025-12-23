@@ -198,13 +198,13 @@ For each variable:
 
 The **Settings > CI/CD > Variables** section should look like this:
 
-![CI/CD Variables section with grid secrets added](fig/variables_gitlab.png)
+![CI/CD Variables section with grid secrets added](fig/variables_gitlab.png){alt='CI/CD Variables section with grid secrets added'}
 
 ### Protect Your Main Branch
 
 To reduce the risk of leaking passwords and certificates to others, go to **Settings > Repository > Protected Branches** and protect your `master` or `main` branch. This prevents collaborators from pushing directly and accidentally exposing secrets in job logs.
 
-![Protecting branches to prevent password leaks](fig/protected_branches.png)
+![Protecting branches to prevent password leaks](fig/protected_branches.png){alt='Protecting branches to prevent password leaks'}
 
 With the **Protected** option enabled for variables, they are only available to those protected branches (though Maintainers can still push to them).
 

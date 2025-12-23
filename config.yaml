@@ -70,6 +70,9 @@ episodes:
 - 03-gitlabci-setenv.md
 - 04-gitlabci-run-analysis.md
 - 05-gitlabci-vomsproxy.md
+- 06-catservices.md
+- 07-final-run.md
+# - A-extra-building-image.md
 
 # Information for Learners
 learners: 
