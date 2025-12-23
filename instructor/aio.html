@@ -326,6 +326,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="A-extra-building-image.html">8. EXTRA: Building a Container Image in GitLab CI/CD</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -2348,7 +2360,7 @@ or <code>-D</code> (macOS) flag.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2579,7 +2591,7 @@ analysis with <code>cmsRun</code> and access CMS data on EOS!</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline succeed this time? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>Even with the <code>voms_proxy_test</code> job added, you still need
 to export your grid proxy as artifact and added in the analysis job to
@@ -2953,7 +2965,7 @@ Service</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3037,7 +3049,7 @@ also need to export grid security variables:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Solution: CAT VOMS Proxy Service </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3285,7 +3297,7 @@ Choose the one that best fits your use case.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
 <p>If your project is in a personal namespace (not
 <code>cms-analysis</code>), use your own grid credentials stored as
 protected CI/CD variables:</p>
@@ -3325,7 +3337,7 @@ protected CI/CD variables:</p>
 <p><strong>Pros:</strong> Full control; works in any namespace.<br><strong>Cons:</strong> Requires managing your own credentials; higher
 security risk if exposed.</p>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
+<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
 <p>If your project is in <code>cms-analysis</code>, use the CAT EOS file
 service for simple file access:</p>
 <div class="codewrapper sourceCode" id="cb4">
@@ -3397,7 +3409,7 @@ service for simple file access:</p>
 requires no CI/CD variables.<br><strong>Cons:</strong> Only works in <code>cms-analysis</code>
 namespace; limited to CAT-hosted files.</p>
 </div>
-<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
+<div id="nav-tabpanel-1-3" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-3">
 <p>For maximum flexibility, use the CAT VOMS proxy service to access any
 CMS data:</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -3573,6 +3585,471 @@ any links that you are not going to use.
 [hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
 [gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
 -->
+</section></section><section id="aio-A-extra-building-image"><p>Content from <a href="A-extra-building-image.html">EXTRA: Building a Container Image in GitLab CI/CD</a></p>
+<hr>
+<p>Last updated on 2025-12-23 |
+
+        <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/A-extra-building-image.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I build a container image with my own code in a GitLab CI/CD
+pipeline?</li>
+<li>How can I reuse the same container building configuration across
+multiple jobs?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Build and push a container image to the GitLab container registry
+using buildah.</li>
+<li>Create a reusable <code>.buildah</code> template for container
+building.</li>
+<li>Use container images built in CI/CD pipelines in your analysis
+workflows.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="building-container-images-with-buildah">Building Container Images with Buildah<a class="anchor" aria-label="anchor" href="#building-container-images-with-buildah"></a>
+</h2>
+<hr class="half-width">
+<p><a href="https://buildah.io/" class="external-link">Buildah</a> is a container build tool
+that works well in CI/CD environments without requiring Docker. In this
+lesson, you’ll learn to build and store container images in the GitLab
+container registry within your CI/CD pipeline.</p>
+<div class="section level3">
+<h3 id="what-youll-need">What You’ll Need<a class="anchor" aria-label="anchor" href="#what-youll-need"></a>
+</h3>
+<ul>
+<li>A <code>Dockerfile</code> in your repository that defines your
+container image.</li>
+<li>If unfamiliar with Docker, see the <a href="https://hsf-training.github.io/hsf-training-docker/index.html" class="external-link">HSF
+Docker tutorial</a>.</li>
+</ul>
+<hr>
+</div>
+</section><section><h2 class="section-heading" id="creating-a-reusable-buildah-template">Creating a Reusable Buildah Template<a class="anchor" aria-label="anchor" href="#creating-a-reusable-buildah-template"></a>
+</h2>
+<hr class="half-width">
+<p>Instead of repeating buildah commands in every job, define a reusable
+<code>.buildah</code> template that other jobs can extend:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">.buildah</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> quay.io/buildah/stable</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">    </span><span class="fu">DOCKER_FILE_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dockerfile"</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">    </span><span class="fu">REGISTRY_IMAGE_PATH</span><span class="kw">:</span><span class="at"> ${CI_REGISTRY_IMAGE}:latest</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">    </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "$CI_REGISTRY_PASSWORD" | buildah login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export BUILDAH_FORMAT=docker</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export STORAGE_DRIVER=vfs</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah build --storage-driver=${STORAGE_DRIVER} -f ${DOCKER_FILE_NAME} -t ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>          buildah tag ${REGISTRY_IMAGE_PATH} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>        done</span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a>      fi</span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah push --storage-driver=${STORAGE_DRIVER} ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a>          buildah push --storage-driver=${STORAGE_DRIVER} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a>        done</span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a>      fi</span></code></pre>
+</div>
+<p><strong>Template variables:</strong></p>
+<ul>
+<li>
+<strong><code>DOCKER_FILE_NAME</code>:</strong> Path to your
+Dockerfile (default: <code>Dockerfile</code>).</li>
+<li>
+<strong><code>REGISTRY_IMAGE_PATH</code>:</strong> Full image path
+and tag (e.g., <code>registry.example.com/user/repo:tag</code>).</li>
+<li>
+<strong><code>EXTRA_TAGS</code>:</strong> Space-separated list of
+additional tags (optional, e.g., <code>"latest v1.0"</code>).</li>
+</ul>
+<hr></section><section><h2 class="section-heading" id="example-1-simple-image-build-and-push">Example 1: Simple Image Build and Push<a class="anchor" aria-label="anchor" href="#example-1-simple-image-build-and-push"></a>
+</h2>
+<hr class="half-width">
+<p>Extend the <code>.buildah</code> template to build an image tagged
+with your commit hash:</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> build</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="fu">build_image</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="at">  </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> .buildah</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="at">    </span><span class="fu">DOCKER_FILE_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dockerfile"</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="at">    </span><span class="fu">REGISTRY_IMAGE_PATH</span><span class="kw">:</span><span class="at"> </span><span class="st">"${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}"</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="at">    </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">"latest"</span></span></code></pre>
+</div>
+<p><strong>What happens:</strong></p>
+<ol style="list-style-type: decimal">
+<li>The image is tagged with your commit hash (e.g.,
+<code>a1b2c3d</code>).</li>
+<li>It’s also tagged as <code>latest</code> via
+<code>EXTRA_TAGS</code>.</li>
+<li>Both tags are pushed to your GitLab container registry.</li>
+</ol>
+<p>Find your image at <strong>Deploy &gt; Container registry</strong> in
+your GitLab project.</p>
+<hr></section><section><h2 class="section-heading" id="example-2-conditional-builds-with-rules">Example 2: Conditional Builds with Rules<a class="anchor" aria-label="anchor" href="#example-2-conditional-builds-with-rules"></a>
+</h2>
+<hr class="half-width">
+<p>Build the container image only when the Dockerfile changes or on a
+schedule:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> build</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">build_image</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="at">  </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> .buildah</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="at">    </span><span class="fu">DOCKER_FILE_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dockerfile"</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="at">    </span><span class="fu">REGISTRY_IMAGE_PATH</span><span class="kw">:</span><span class="at"> </span><span class="st">"${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}"</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="at">    </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">"latest"</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="at">  </span><span class="fu">rules</span><span class="kw">:</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_PIPELINE_SOURCE == "schedule"</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="at">      </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="at">        </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">"latest scheduled"</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_PIPELINE_SOURCE == "merge_request_event"</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="at">      </span><span class="fu">changes</span><span class="kw">:</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Dockerfile</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">if</span><span class="kw">:</span><span class="at"> $CI_COMMIT_BRANCH == "main"</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="at">      </span><span class="fu">changes</span><span class="kw">:</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> Dockerfile</span></span></code></pre>
+</div>
+<p>This ensures containers are only rebuilt when necessary, saving CI/CD
+time.</p>
+<hr></section><section><h2 class="section-heading" id="using-your-built-container-image">Using Your Built Container Image<a class="anchor" aria-label="anchor" href="#using-your-built-container-image"></a>
+</h2>
+<hr class="half-width">
+<p>Once the image is pushed to the registry, use it in subsequent CI
+jobs or elsewhere:</p>
+<div class="section level3">
+<h3 id="in-gitlab-cicd">In GitLab CI/CD<a class="anchor" aria-label="anchor" href="#in-gitlab-cicd"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">test_with_image</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> test</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> ${CI_REGISTRY_IMAGE}:latest</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Running tests in the custom container"</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="co"> # your test commands here</span></span></code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="locally-on-lxplus-or-your-machine">Locally (on LXPLUS or your machine)<a class="anchor" aria-label="anchor" href="#locally-on-lxplus-or-your-machine"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">apptainer</span> shell docker://<span class="va">${CI_REGISTRY_IMAGE}</span>:latest</span></code></pre>
+</div>
+<p>Or with Docker:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">docker</span> run <span class="va">${CI_REGISTRY_IMAGE}</span>:latest</span></code></pre>
+</div>
+<p>Replace <code>${CI_REGISTRY_IMAGE}</code> with your actual registry
+path (e.g., <code>gitlab-registry.cern.ch/username/repo</code>).</p>
+<hr>
+<div id="challenge-build-your-own-container" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="challenge-build-your-own-container" class="callout-inner">
+<h3 class="callout-title">Challenge: Build Your Own Container</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Create a simple <code>Dockerfile</code> in your repository that
+compiles <code>CMSSW</code> like the previous example.</li>
+<li>Add a <code>build_image</code> job to your
+<code>.gitlab-ci.yml</code> that extends <code>.buildah</code>.</li>
+<li>Push your code and check <strong>CI/CD &gt; Pipelines</strong> to
+watch the build.</li>
+<li>Find your image in <strong>Deploy &gt; Container
+registry</strong>.</li>
+<li>Use it in a downstream CI job or locally with apptainer.</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p><strong>Tip:</strong> The commit hash tag (e.g.,
+<code>a1b2c3d</code>) ensures a one-to-one correspondence between your
+code and the built image, making it easy to reproduce analysis runs from
+a specific commit.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="build-an-image-that-includes-the-compiled-cmssw-area-from-cmssw_compile">Build an image that includes the compiled CMSSW area (from
+<code>cmssw_compile</code>)<a class="anchor" aria-label="anchor" href="#build-an-image-that-includes-the-compiled-cmssw-area-from-cmssw_compile"></a>
+</h2>
+<hr class="half-width">
+<p>If you already compile CMSSW in a <code>cmssw_compile</code> job and
+publish the full <code>${CMSSW_RELEASE}</code> as an artifact, you can
+bake that compiled area into a reusable runtime image. This lets
+downstream jobs (or local users) run <code>cmsRun</code> without
+rebuilding.</p>
+<div class="section level3">
+<h3 id="ensure-cmssw_compile-exports-the-area-as-an-artifact">1) Ensure <code>cmssw_compile</code> exports the area as an
+artifact<a class="anchor" aria-label="anchor" href="#ensure-cmssw_compile-exports-the-area-as-an-artifact"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="at">  </span><span class="fu">CMS_PATH</span><span class="kw">:</span><span class="at"> /cvmfs/cms.cern.ch</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="at">  </span><span class="fu">CMSSW_RELEASE</span><span class="kw">:</span><span class="at"> CMSSW_10_6_30</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="at">  </span><span class="fu">SCRAM_ARCH</span><span class="kw">:</span><span class="at"> slc7_amd64_gcc700</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">cmssw_compile</span><span class="kw">:</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> registry.cern.ch/docker.io/cmssw/el7:x86_64</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">k8s-cvmfs</span><span class="kw">]</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> set +u &amp;&amp; source ${CMS_PATH}/cmsset_default.sh; set -u</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export SCRAM_ARCH=${SCRAM_ARCH}</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsrel ${CMSSW_RELEASE}</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src &amp;&amp; cmsenv</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode &amp;&amp; cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src &amp;&amp; scram b -j 4</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="at">    </span><span class="fu">expire_in</span><span class="kw">:</span><span class="at"> 1 hour</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="at">    </span><span class="fu">paths</span><span class="kw">:</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> ${CMSSW_RELEASE}</span></span></code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="add-a-dockerfile-that-copies-the-compiled-area">2) Add a Dockerfile that copies the compiled area<a class="anchor" aria-label="anchor" href="#add-a-dockerfile-that-copies-the-compiled-area"></a>
+</h3>
+<p>Create <code>Dockerfile</code> in your repository:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">DOCKERFILE<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode dockerfile" tabindex="0"><code class="sourceCode dockerfile"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Dockerfile</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">FROM</span> registry.cern.ch/docker.io/cmssw/el7:x86_64</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="kw">ARG</span> CMSSW_RELEASE</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="kw">ENV</span> CMS_PATH=/cvmfs/cms.cern.ch <span class="op">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>    SCRAM_ARCH=slc7_amd64_gcc700 <span class="op">\</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    CMSSW_RELEASE=${CMSSW_RELEASE} <span class="op">\</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>    CMSSW_BASE=/opt/${CMSSW_RELEASE}</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co"># Copy the compiled CMSSW area from the CI workspace (artifact) into the image</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="kw">COPY</span> ${CMSSW_RELEASE} /opt/${CMSSW_RELEASE}</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="kw">SHELL</span> [<span class="st">"/bin/bash"</span>, <span class="st">"-lc"</span>]</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="kw">RUN</span> <span class="bu">echo</span> <span class="st">'source ${CMS_PATH}/cmsset_default.sh &amp;&amp; cd ${CMSSW_BASE}/src &amp;&amp; cmsenv'</span> <span class="op">&gt;&gt;</span> /etc/profile.d/cmssw.sh</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="kw">WORKDIR</span> /opt/${CMSSW_RELEASE}/src</span></code></pre>
+</div>
+<p>Notes:</p>
+<ul>
+<li>The <code>COPY ${CMSSW_RELEASE} ...</code> works because the build
+job (below) uses <code>needs: cmssw_compile</code> with
+<code>artifacts: true</code>, so the compiled directory is present in
+the build context.</li>
+<li>This image contains your compiled code, so downstream jobs can run
+<code>cmsRun</code> directly.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="build-the-image-by-extending-the-reusable--buildah-template">3) Build the image by extending the reusable <code>.buildah</code>
+template<a class="anchor" aria-label="anchor" href="#build-the-image-by-extending-the-reusable--buildah-template"></a>
+</h3>
+<p>Assuming you already defined the reusable <code>.buildah</code>
+template:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">.buildah</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> quay.io/buildah/stable</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="at">    </span><span class="fu">DOCKER_FILE_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dockerfile"</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="at">    </span><span class="fu">REGISTRY_IMAGE_PATH</span><span class="kw">:</span><span class="at"> ${CI_REGISTRY_IMAGE}:latest</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="at">    </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "$CI_REGISTRY_PASSWORD" | buildah login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY</span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export BUILDAH_FORMAT=docker</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export STORAGE_DRIVER=vfs</span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah build --storage-driver=${STORAGE_DRIVER} -f ${DOCKER_FILE_NAME} -t ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>          buildah tag ${REGISTRY_IMAGE_PATH} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>        done</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>      fi</span>
+<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah push --storage-driver=${STORAGE_DRIVER} ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a>          buildah push --storage-driver=${STORAGE_DRIVER} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a>        done</span>
+<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a>      fi</span></code></pre>
+</div>
+<p>Then add the image build job:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">stages</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">compile</span><span class="kw">,</span><span class="at"> build</span><span class="kw">]</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">build_cmssw_image</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> build</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="at">  </span><span class="fu">extends</span><span class="kw">:</span><span class="at"> .buildah</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="at">  </span><span class="fu">needs</span><span class="kw">:</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">job</span><span class="kw">:</span><span class="at"> cmssw_compile</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="at">      </span><span class="fu">artifacts</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="at">  </span><span class="fu">variables</span><span class="kw">:</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="at">    </span><span class="fu">DOCKER_FILE_NAME</span><span class="kw">:</span><span class="at"> </span><span class="st">"Dockerfile"</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="at">    </span><span class="fu">REGISTRY_IMAGE_PATH</span><span class="kw">:</span><span class="at"> </span><span class="st">"${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}"</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="at">    </span><span class="fu">EXTRA_TAGS</span><span class="kw">:</span><span class="at"> </span><span class="st">"latest"</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">    # Optional: pass release as build-arg</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="at">    </span><span class="fu">BUILDAH_ARGS</span><span class="kw">:</span><span class="at"> </span><span class="st">"--build-arg CMSSW_RELEASE=${CMSSW_RELEASE}"</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="at">  </span><span class="fu">before_script</span><span class="kw">:</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "$CI_REGISTRY_PASSWORD" | buildah login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export BUILDAH_FORMAT=docker</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> export STORAGE_DRIVER=vfs</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah build --storage-driver=${STORAGE_DRIVER} ${BUILDAH_ARGS} -f ${DOCKER_FILE_NAME} -t ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>          buildah tag ${REGISTRY_IMAGE_PATH} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>        done</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>      fi</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> buildah push --storage-driver=${STORAGE_DRIVER} ${REGISTRY_IMAGE_PATH}</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="kw">    - </span><span class="ch">|</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>      if [ -n "${EXTRA_TAGS}" ]; then</span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>        for tag in ${EXTRA_TAGS}; do</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>          buildah push --storage-driver=${STORAGE_DRIVER} ${CI_REGISTRY_IMAGE}:${tag}</span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>        done</span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a>      fi</span></code></pre>
+</div>
+<p>You can now use the image
+<code>${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}</code> (or
+<code>:latest</code>) in later jobs:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">run_with_baked_image</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> test</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span><span class="at"> ${CI_REGISTRY_IMAGE}:${CI_COMMIT_SHORT_SHA}</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">k8s-cvmfs</span><span class="kw">]</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> source /cvmfs/cms.cern.ch/cmsset_default.sh</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd /opt/${CMSSW_RELEASE}/src &amp;&amp; cmsenv</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun AnalysisCode/ZPeakAnalysis/test/MyZPeak_cfg.py</span></span></code></pre>
+</div>
+<p>Tips:</p>
+<ul>
+<li>Artifacts are read-only in downstream jobs, but Buildah only needs
+to read them (no extra <code>chmod</code> is required).</li>
+<li>Tag images by commit for exact reproducibility; add
+<code>latest</code> for a moving pointer.</li>
+</ul>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ --><!-- [pandoc]: https://pandoc.org/MANUAL.html
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[carpentries-workbench]: https://carpentries.github.io/sandpaper-docs/
+[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
+[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[ci]: http://communityin.org/
+[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
+[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[contrib-covenant]: https://contributor-covenant.org/
+[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
+[cran-knitr]: https://cran.r-project.org/package=knitr
+[cran-stringr]: https://cran.r-project.org/package=stringr
+[dc-lessons]: http://www.datacarpentry.org/lessons/
+[email]: mailto:team@carpentries.org
+[github-importer]: https://import.github.com/
+[importer]: https://github.com/new/import
+[jekyll-collection]: https://jekyllrb.com/docs/collections/
+[jekyll-install]: https://jekyllrb.com/docs/installation/
+[jekyll-windows]: http://jekyll-windows.juthilo.com/
+[jekyll]: https://jekyllrb.com/
+[jupyter]: https://jupyter.org/
+[kramdown]: https://kramdown.gettalong.org/
+[lc-lessons]: https://librarycarpentry.org/lessons/
+[lesson-example]: https://carpentries.github.io/lesson-example/
+[mit-license]: https://opensource.org/licenses/mit-license.html
+[morea]: https://morea-framework.github.io/
+[numfocus]: https://numfocus.org/
+[osi]: https://opensource.org
+[pandoc]: https://pandoc.org/
+[paper-now]: https://github.com/PeerJ/paper-now
+[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
+[pyyaml]: https://pypi.python.org/pypi/PyYAML
+[r-markdown]: https://rmarkdown.rstudio.com/
+[rstudio]: https://www.rstudio.com/
+[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
+[ruby-installer]: https://rubyinstaller.org/
+[rubygems]: https://rubygems.org/pages/download/
+[styles]: https://github.com/carpentries/styles/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-releases]: https://github.com/swcarpentry/swc-releases
+[training]: https://carpentries.github.io/instructor-training/
+[yaml]: http://yaml.org/
+[bootcamp-coc]: https://indico.cern.ch/event/854880/page/18570-code-of-conduct
+
+[payload-gitlab-cms]: https://gitlab.cern.ch/awesome-workshop/payload-gitlab-cms
+[gitlab-artifacts]: https://docs.gitlab.com/ee/ci/yaml/#artifacts
+[lesson-gitlab-artifacts]: https://hsf-training.github.io/hsf-training-cicd/11-skim-milk/index.html#artifacts
+[lesson-gitlab-secrets]: https://hsf-training.github.io/hsf-training-cicd/12-the-spy-game/index.html
+[lesson-gitlab]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-variables-advanced]: https://docs.gitlab.com/ci/variables/
+[workshop-indico]: https://indico.cern.ch/event/854880/
+[hsf-training-gitlab-ci]: https://hsf-training.github.io/hsf-training-cicd/
+[gitlab-private-runner]: https://gitlab.docs.cern.ch/docs/Build%20your%20application/CI-CD/Runners/private-runner-registration/
+-->
+</div>
 </section></section>
 </div>
     </main>
