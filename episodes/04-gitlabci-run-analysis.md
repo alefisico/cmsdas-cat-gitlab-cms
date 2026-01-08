@@ -113,7 +113,7 @@ cmssw_compile:
     - cmsenv
     - mkdir -p AnalysisCode
     - cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/
-    - cd ${CMSSW_RELEASE}/src
+    - cd ${CMSSW_BASE}/src
     - scram b -j 4
   artifacts:
     untracked: true
