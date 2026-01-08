@@ -118,7 +118,7 @@ Copy the analysis code into your CMSSW work area:
 ```bash
 cd ${CMSSW_BASE}/src/
 mkdir -p AnalysisCode
-cp -r ~/cmsdas/cmsdas-gitlab-cms/ZPeakAnalysis AnalysisCode/
+cp -r ~/cmsdas/cmsdas/cmsdas-gitlab-cms/ZPeakAnalysis AnalysisCode/
 ```
 
 Now your code is in the right place for CMSSW to find and compile it.
