@@ -345,7 +345,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Running a CMSSW analysis in GitLab CI/CD</h1>
-        <p>Last updated on 2025-12-23 |
+        <p>Last updated on 2026-01-08 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/04-gitlabci-run-analysis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -496,7 +496,7 @@ the setup.</li>
 <span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsenv</span></span>
 <span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
 <span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
-<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_RELEASE}/src</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd ${CMSSW_BASE}/src</span></span>
 <span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scram b -j 4</span></span>
 <span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="at">  </span><span class="fu">artifacts</span><span class="kw">:</span></span>
 <span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="at">    </span><span class="fu">untracked</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
@@ -860,8 +860,8 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/04-gitlabci-run-analysis.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/04-gitlabci-run-analysis.html",
   "dateCreated": "NA",
-  "dateModified": "2025-12-23",
-  "datePublished": "2026-01-06"
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08"
 }
 
   </script><script>
