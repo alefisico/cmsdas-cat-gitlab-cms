@@ -345,7 +345,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Running a CMSSW analysis in GitLab CI/CD</h1>
-        <p>Last updated on 2026-01-08 |
+        <p>Last updated on 2026-01-13 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/04-gitlabci-run-analysis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -424,7 +424,7 @@ repository:</p>
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Inside your gitlab repository cmsdas-gitlab-cms/</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># Download and unzip the analysis code (https://alefisico.github.io/cmsdas-cat-gitlab-cms/files/ZPeakAnalysis.zip)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># Download and unzip the analysis code (wget https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/raw/refs/heads/main/episodes/files/ZPeakAnalysis.zip)</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">git</span> add ZPeakAnalysis/</span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add analysis code"</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre>
@@ -450,14 +450,15 @@ the analysis with <code>cmsRun</code>:</p>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Copying analysis code"</span></span>
 <span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
 <span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Running analysis code"</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Checking number of events"</span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Testing output"</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> scram b -j 4</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Running analysis code"</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cmsRun test/MyZPeak_cfg.py</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ls -l myZPeak.root</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Checking number of events"</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python test/check_number_events_cmssw10.py</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> echo "Testing output"</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python test/check_cutflows_cmssw10.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
 </div>
 <div id="do-you-see-any-potential-issues-with-this-job-definition" class="callout discussion">
 <div class="callout-square">
@@ -577,8 +578,8 @@ the setup.</li>
 <span id="cb3-81"><a href="#cb3-81" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p AnalysisCode</span></span>
 <span id="cb3-82"><a href="#cb3-82" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/</span></span>
 <span id="cb3-83"><a href="#cb3-83" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> cd AnalysisCode/ZPeakAnalysis/</span></span>
-<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
-<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
+<span id="cb3-84"><a href="#cb3-84" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python test/check_number_events_cmssw10.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root</span></span>
+<span id="cb3-85"><a href="#cb3-85" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> python test/check_cutflows_cmssw10.py number_of_events.txt test/number_of_expected_events.txt</span></span></code></pre>
 </div>
 <p>For the compiled code to be available in subsequent steps, the
 artifacts must be explicitly defined. In the <code>cmssw_compile</code>
@@ -880,7 +881,7 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/04-gitlabci-run-analysis.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/instructor/04-gitlabci-run-analysis.html",
   "dateCreated": "NA",
-  "dateModified": "2026-01-08",
+  "dateModified": "2026-01-13",
   "datePublished": "2026-01-13"
 }
 

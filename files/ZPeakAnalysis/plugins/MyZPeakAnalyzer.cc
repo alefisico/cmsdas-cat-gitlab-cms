@@ -5,7 +5,7 @@
 
 #include "FWCore/Framework/interface/Frameworkfwd.h"
 #include "FWCore/Framework/interface/Event.h"
-#include "FWCore/Framework/interface/EDAnalyzer.h"
+#include "FWCore/Framework/interface/one/EDAnalyzer.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
 #include "CommonTools/UtilAlgos/interface/TFileService.h"
@@ -14,7 +14,7 @@
 #include "DataFormats/PatCandidates/interface/Electron.h"
 #include "DataFormats/PatCandidates/interface/Muon.h"
 
-class MyZPeakAnalyzer : public edm::EDAnalyzer {
+class MyZPeakAnalyzer : public edm::one::EDAnalyzer<> {
 
 public:
    explicit MyZPeakAnalyzer(const edm::ParameterSet&);
