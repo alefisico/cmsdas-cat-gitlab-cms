@@ -109,7 +109,7 @@ Download and extract the code:
 ```bash
 # Go to your project folder from lesson 1
 cd ~/nobackup/cmsdas/cmsdas-gitlab-cms/   # Use ~/nobackup for cmslpc users
-wget https://alefisico.github.io/cmsdas-cat-gitlab-cms/files/ZPeakAnalysis.zip
+wget https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/raw/refs/heads/main/episodes/files/ZPeakAnalysis.zip
 unzip ZPeakAnalysis.zip
 ```
 

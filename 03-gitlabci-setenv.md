@@ -120,7 +120,7 @@ The default user in the runner container is not your username, and the container
 
 #### Steps to Set Up CMSSW
 
-In a typical workflow on LXPLUS, you would run:
+In a typical workflow on LXPLUS, you would run (do not run this, this is an example):
 
 ```bash
 cmssw-el7

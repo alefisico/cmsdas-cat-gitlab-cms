@@ -292,7 +292,7 @@ cmssw_compile:
     - cmsenv
     - mkdir -p AnalysisCode
     - cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/
-    - cd ${CMSSW_RELEASE}/src
+    - cd ${CMSSW_BASE}/src
     - scram b -j 4
   artifacts:
     untracked: true
@@ -301,11 +301,10 @@ cmssw_compile:
       - ${CMSSW_RELEASE}
 
 voms_proxy_test:
-  image:
-    name: gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest
-    entrypoint: [""]
+  stage: compile
+  image: gitlab-registry.cern.ch/cms-cloud/cmssw-docker/al9-cms:latest
   tags:
-    - k8-cvmfs
+    - k8s-cvmfs
   script:
     - mkdir -p ${HOME}/.globus
     - printf "${GRID_USERCERT}" | base64 -d > ${HOME}/.globus/usercert.pem
@@ -313,9 +312,12 @@ voms_proxy_test:
     - chmod 400 ${HOME}/.globus/userkey.pem
     - printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin
     - voms-proxy-info --all
+    - export VOMSPROXY=$(voms-proxy-info -path)
+    - mkdir proxy
+    - cp ${VOMSPROXY} proxy/x509_proxy
   artifacts:
     paths:
-      - /tmp/x509up_u$(id -u)
+      - proxy
 
 cmssw_run:
   needs:
@@ -328,17 +330,22 @@ cmssw_run:
   script:
     - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
     - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cd ${CMSSW_RELEASE}/src
+    - export X509_USER_PROXY=${PWD}/proxy/x509_proxy
+    - mkdir run
+    - cp -r ${CMSSW_RELEASE} run/
+    - chmod -R +w run/${CMSSW_RELEASE}/
+    - cd run/${CMSSW_RELEASE}/src
     - cmsenv
     - voms-proxy-info --all
     - cd AnalysisCode/ZPeakAnalysis/
     - cmsRun test/MyZPeak_cfg.py
+      #- cmsRun test/MyZPeak_cfg.py inputFiles=root://cms-xrd-global.cern.ch//store/user/cmsdas/2026/short_exercises/cat/datasets/MINIAODSIM/RunIISummer20UL17MiniAODv2-106X_mc2017_realistic_v9-v2/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/2C5565D7-ADE5-2C40-A0E5-BDFCCF40640E.root   #### in case the previous does not work
     - ls -l myZPeak.root
   artifacts:
     untracked: true
     expire_in: 1 hour
     paths:
-      - ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
+      - run/${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
 
 check_events:
   needs:
@@ -351,11 +358,14 @@ check_events:
   script:
     - set +u && source ${CMS_PATH}/cmsset_default.sh; set -u
     - export SCRAM_ARCH=${SCRAM_ARCH}
-    - cd ${CMSSW_RELEASE}/src
+    - cp -r ${CMSSW_RELEASE} run/
+    - chmod -R +w run/${CMSSW_RELEASE}/
+    - cd run/${CMSSW_RELEASE}/src
     - cmsenv
     - cd AnalysisCode/ZPeakAnalysis/
-    - python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
-    - python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt
+    - python test/check_number_events.py --input ${CMSSW_BASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
+    - python test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt
+
 ```
 
 :::::::::::::

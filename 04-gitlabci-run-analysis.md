@@ -38,7 +38,7 @@ First, ensure the analysis code is committed to your GitLab repository:
 
 ```bash
 # Inside your gitlab repository cmsdas-gitlab-cms/
-# Download and unzip the analysis code (https://alefisico.github.io/cmsdas-cat-gitlab-cms/files/ZPeakAnalysis.zip)
+# Download and unzip the analysis code (wget https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/raw/refs/heads/main/episodes/files/ZPeakAnalysis.zip)
 git add ZPeakAnalysis/
 git commit -m "Add analysis code"
 git push
@@ -63,14 +63,15 @@ cmssw_setup:
     - echo "Copying analysis code"
     - mkdir -p AnalysisCode
     - cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/
+    - scram b -j 4
     - cd AnalysisCode/ZPeakAnalysis/
     - echo "Running analysis code"
     - cmsRun test/MyZPeak_cfg.py
     - ls -l myZPeak.root
     - echo "Checking number of events"
-    - python3 test/check_number_events.py
+    - python test/check_number_events_cmssw10.py
     - echo "Testing output"
-    - python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt
+    - python test/check_cutflows_cmssw10.py number_of_events.txt test/number_of_expected_events.txt
 ```
 
 ::::: discussion
@@ -174,8 +175,8 @@ check_events:
     - mkdir -p AnalysisCode
     - cp -r $CI_PROJECT_DIR/ZPeakAnalysis AnalysisCode/
     - cd AnalysisCode/ZPeakAnalysis/
-    - python3 test/check_number_events.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
-    - python3 test/check_cutflows.py number_of_events.txt test/number_of_expected_events.txt
+    - python test/check_number_events_cmssw10.py --input ${CMSSW_RELEASE}/src/AnalysisCode/ZPeakAnalysis/myZPeak.root
+    - python test/check_cutflows_cmssw10.py number_of_events.txt test/number_of_expected_events.txt
 ```
 
 For the compiled code to be available in subsequent steps, the artifacts must be explicitly defined. In the `cmssw_compile` job, we specify:
