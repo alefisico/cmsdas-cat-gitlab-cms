@@ -1320,7 +1320,7 @@ fail.</p>
   To trigger the pipeline
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1423,7 +1423,7 @@ environment for the release.</li>
   Special Setup for cmslpc Users
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>At cmslpc, jobs typically run in your <code>nobackup</code> area
 (<code>/uscms_data/d3/USERNAME</code>). You may need to bind your
@@ -1457,7 +1457,7 @@ directories when starting a container:</p>
   Solution: Determining CMSSW-related aliases
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The most important aliases are in the table below:</p>
 <table class="table">
@@ -2133,7 +2133,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-05-gitlabci-vomsproxy"><p>Content from <a href="05-gitlabci-vomsproxy.html">Securely adding passwords and files to GitLab</a></p>
 <hr>
-<p>Last updated on 2026-01-13 |
+<p>Last updated on 2026-01-14 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/05-gitlabci-vomsproxy.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2308,7 +2308,7 @@ or <code>-D</code> (macOS) flag.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2492,16 +2492,17 @@ Use the CMS-specific image instead:</p>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-destroy</span></span></code></pre>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-destroy</span></span></code></pre>
 </div>
 <p>The <code>entrypoint: [""]</code> override is needed to ensure the
 job runs your custom script instead of a default entrypoint.</p>
@@ -2539,7 +2540,7 @@ analysis with <code>cmsRun</code> and access CMS data on EOS!</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline succeed this time? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>Even with the <code>voms_proxy_test</code> job added, you still need
 to export your grid proxy as artifact and added in the analysis job to
@@ -2734,7 +2735,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-06-catservices"><p>Content from <a href="06-catservices.html">CAT services for GitLab CI</a></p>
 <hr>
-<p>Last updated on 2025-12-23 |
+<p>Last updated on 2026-01-14 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/06-catservices.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2843,6 +2844,10 @@ if your project is in the <code>cms-analysis</code>
 namespace</strong>.</p>
 <p>To move your current project:</p>
 <ol style="list-style-type: decimal">
+<li>Go to <a href="https://cms-analysis-access.web.cern.ch/login" class="external-link">this
+website</a> to ask for access to the <code>cms-analysis</code>
+namespace. <a href="https://cms-analysis.docs.cern.ch/code/getting_area/" class="external-link">More about
+it here</a>.</li>
 <li>Go to <strong>Settings &gt; General &gt; Advanced &gt; Transfer
 project</strong>.</li>
 <li>Select <code>cms-analysis/CMSDAS/CAT-tutorials</code> as the new
@@ -2921,7 +2926,7 @@ Service</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3005,7 +3010,7 @@ also need to export grid security variables:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Solution: CAT VOMS Proxy Service </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3252,7 +3257,7 @@ Choose the one that best fits your use case.</p>
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
 <p>If your project is in a personal namespace (not
 <code>cms-analysis</code>), use your own grid credentials stored as
 protected CI/CD variables:</p>
@@ -3292,7 +3297,7 @@ protected CI/CD variables:</p>
 <p><strong>Pros:</strong> Full control; works in any namespace.<br><strong>Cons:</strong> Requires managing your own credentials; higher
 security risk if exposed.</p>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
+<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
 <p>If your project is in <code>cms-analysis</code>, use the CAT EOS file
 service for simple file access:</p>
 <div class="codewrapper sourceCode" id="cb4">
@@ -3364,7 +3369,7 @@ service for simple file access:</p>
 requires no CI/CD variables.<br><strong>Cons:</strong> Only works in <code>cms-analysis</code>
 namespace; limited to CAT-hosted files.</p>
 </div>
-<div id="nav-tabpanel-1-3" class="tab-pane" aria-labelledby="nav-tab-1-3" role="tabpanel">
+<div id="nav-tabpanel-1-3" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-3">
 <p>For maximum flexibility, use the CAT VOMS proxy service to access any
 CMS data:</p>
 <div class="codewrapper sourceCode" id="cb5">
@@ -4054,8 +4059,8 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/aio.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/aio.html",
   "dateCreated": "NA",
-  "dateModified": "2026-01-13",
-  "datePublished": "2026-01-13"
+  "dateModified": "2026-01-14",
+  "datePublished": "2026-01-14"
 }
 
   </script><script>

@@ -350,7 +350,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Securely adding passwords and files to GitLab</h1>
-        <p>Last updated on 2026-01-13 |
+        <p>Last updated on 2026-01-14 |
 
         <a href="https://github.com/FNALLPC/cmsdas-cat-gitlab-cms/edit/main/episodes/05-gitlabci-vomsproxy.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -515,7 +515,7 @@ or <code>-D</code> (macOS) flag.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -670,16 +670,17 @@ Use the CMS-specific image instead:</p>
 <span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="at">  </span><span class="fu">image</span><span class="kw">:</span></span>
 <span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest</span></span>
 <span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="at">    </span><span class="fu">entrypoint</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">""</span><span class="kw">]</span></span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
-<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
-<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
-<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
-<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-destroy</span></span></code></pre>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="at">  </span><span class="fu">stage</span><span class="kw">:</span><span class="at"> compile</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> k8-cvmfs</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="at">  </span><span class="fu">script</span><span class="kw">:</span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mkdir -p ${HOME}/.globus</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERCERT}" | base64 -d &gt; ${HOME}/.globus/usercert.pem</span></span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_USERKEY}" | base64 -d &gt; ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> chmod 400 ${HOME}/.globus/userkey.pem</span></span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> printf "${GRID_PASSWORD}" | base64 -d | voms-proxy-init --voms cms --pwstdin</span></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-info --all</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> voms-proxy-destroy</span></span></code></pre>
 </div>
 <p>The <code>entrypoint: [""]</code> override is needed to ensure the
 job runs your custom script instead of a default entrypoint.</p>
@@ -714,7 +715,7 @@ analysis with <code>cmsRun</code> and access CMS data on EOS!</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline succeed this time? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>Even with the <code>voms_proxy_test</code> job added, you still need
 to export your grid proxy as artifact and added in the analysis job to
@@ -965,8 +966,8 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/05-gitlabci-vomsproxy.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/05-gitlabci-vomsproxy.html",
   "dateCreated": "NA",
-  "dateModified": "2026-01-13",
-  "datePublished": "2026-01-13"
+  "dateModified": "2026-01-14",
+  "datePublished": "2026-01-14"
 }
 
   </script><script>
