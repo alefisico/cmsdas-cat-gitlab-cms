@@ -230,6 +230,7 @@ voms_proxy_test:
   image:
     name: gitlab-registry.cern.ch/cms-cloud/cmssw-docker/cc7-cms:latest
     entrypoint: [""]
+  stage: compile
   tags:
     - k8-cvmfs
   script:

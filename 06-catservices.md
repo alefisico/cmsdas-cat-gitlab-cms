@@ -57,9 +57,10 @@ For security reasons, the services described here **only work if your project is
 
 To move your current project:
 
-1. Go to **Settings > General > Advanced > Transfer project**.
-2. Select `cms-analysis/CMSDAS/CAT-tutorials` as the new namespace (for testing).
-3. For production work, select the relevant POG/PAG subgroup.
+1. Go to [this website](https://cms-analysis-access.web.cern.ch/login) to ask for access to the `cms-analysis` namespace. [More about it here](https://cms-analysis.docs.cern.ch/code/getting_area/).
+2. Go to **Settings > General > Advanced > Transfer project**.
+3. Select `cms-analysis/CMSDAS/CAT-tutorials` as the new namespace (for testing).
+4. For production work, select the relevant POG/PAG subgroup.
 
 ---
 
