@@ -889,7 +889,7 @@ your GitLab repository</strong>:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> If the previous command fails </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>If you see an error about missing git configuration, set your name
 and email:</p>
@@ -1313,7 +1313,7 @@ fail.</p>
   To trigger the pipeline
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1416,7 +1416,7 @@ environment for the release.</li>
   Special Setup for cmslpc Users
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>At cmslpc, jobs typically run in your <code>nobackup</code> area
 (<code>/uscms_data/d3/USERNAME</code>). You may need to bind your
@@ -1450,20 +1450,20 @@ directories when starting a container:</p>
   Solution: Determining CMSSW-related aliases
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The most important aliases are in the table below:</p>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th>Alias</th>
 <th>Command</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>cmsenv</code></td>
 <td><code>eval `scramv1 runtime -sh`</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>cmsrel</code></td>
 <td><code>scramv1 project CMSSW</code></td>
 </tr>
@@ -1757,7 +1757,7 @@ definition?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> HINT: Is this how you would run your analysis locally? </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The job above will work, but it’s inefficient:</p>
 <ul>
@@ -1947,17 +1947,17 @@ define job dependencies:</p>
 <col width="47%">
 <col width="52%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Keyword</th>
 <th>Behavior</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><a href="https://docs.gitlab.com/ci/yaml/needs/" class="external-link"><code>needs</code></a></td>
 <td>Job starts <strong>immediately</strong> when the needed job
 completes, regardless of stage. Enables parallelism.</td>
 </tr>
-<tr class="even">
+<tr>
 <td><a href="https://docs.gitlab.com/ci/yaml/#dependencies" class="external-link"><code>dependencies</code></a></td>
 <td>Job starts only when <strong>all jobs in the prior stage</strong>
 complete. Strictly follows stage order.</td>
@@ -1985,7 +1985,7 @@ efficiency?</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> HINT: Are we repeating any steps unnecessarily? </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>
@@ -2024,7 +2024,7 @@ re-building.</li>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Did your pipeline run successfully? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>If yes, you dont need the rest of the lessons. If they are failing,
 continue with the next lesson.</p>
@@ -2412,20 +2412,20 @@ signs</strong>.</p>
 <p>Go to <strong>Settings &gt; CI/CD &gt; Variables</strong> in your
 GitLab project. Add the following three variables:</p>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th>Variable</th>
 <th>Value</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>GRID_PASSWORD</code></td>
 <td>(base64-encoded password)</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>GRID_USERCERT</code></td>
 <td>(base64-encoded <code>usercert.pem</code>)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>GRID_USERKEY</code></td>
 <td>(base64-encoded <code>userkey.pem</code>)</td>
 </tr>
@@ -2919,7 +2919,7 @@ Service</h3>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3003,7 +3003,7 @@ also need to export grid security variables:</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Solution: CAT VOMS Proxy Service </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4052,8 +4052,8 @@ any links that you are not going to use.
   "url": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/aio.html",
   "identifier": "https://FNALLPC.github.io/cmsdas-cat-gitlab-cms/aio.html",
   "dateCreated": "NA",
-  "dateModified": "2026-04-28",
-  "datePublished": "2026-04-28"
+  "dateModified": "2026-05-05",
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
